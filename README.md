@@ -83,11 +83,10 @@ An iOS app which allows UCSD students to sell their used items or buy used items
    * Home screen
 
 ## Wireframes
-[Add picture of your hand sketched wireframes in this section]
 <img src="https://i.imgur.com/55hUhny.jpg" width=600>
 
 ### [BONUS] Digital Wireframes & Mockups
-
+https://marvelapp.com/4711cbd/screen/55948944
 ### [BONUS] Interactive Prototype
 
 ## Schema 
