@@ -86,8 +86,9 @@ An iOS app which allows UCSD students to sell their used items or buy used items
 <img src="https://i.imgur.com/55hUhny.jpg" width=600>
 
 ### [BONUS] Digital Wireframes & Mockups
-https://marvelapp.com/4711cbd/screen/55948944
+
 ### [BONUS] Interactive Prototype
+https://marvelapp.com/4711cbd/screen/55948944
 
 ## Schema 
 [This section will be completed in Unit 9]
