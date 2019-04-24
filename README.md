@@ -91,12 +91,29 @@ An iOS app which allows UCSD students to sell their used items or buy used items
 https://marvelapp.com/4711cbd/screen/55948944
 
 ## Schema 
-[This section will be completed in Unit 9]
 ### Models
-| Property | Type | Description |
-| -------- | ---- | ----------- |
-| | |
+Object: Post
+| Property | Type| Description|
+| -------- | ---- | ------- |
+| title | String | The title of the item |
+| objectId | String| unique ID for the user's post |
+| author | Pointer to user | The user that posted the item |
+| image | File | The image that describes the post|
+| description | String | The description for the item |
+Object: User
+| Property | Type| Description|
+| -------- | ---- | ------- |
+| userId | String| unique ID for the user |
+| userName | String | name of the user |
+| profilePic | File | Avatar |
+
 ### Networking
 - [Add list of network requests by screen ]
+ Home Feed Screen
+ 1. (Read/GET) Query all the item's titles from the database.
+ Item Screen
+ 1. (Read/GET) Query the detail about the item selected.
+ Post Screen
+ 1. (Create/POST) Post the new item as an author.
 - [Create basic snippets for each Parse network request]
 - [OPTIONAL: List endpoints if using existing API such as Yelp]
