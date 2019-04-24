@@ -101,11 +101,11 @@ Object: Post
 | image | File | The image that describes the post|
 | description | String | The description for the item |
 Object: User
-| Property | Type | Description |
-| ---- | ---- | ---- |
-| userId | String| unique ID for the user |
-| userName | String | name of the user |
-| profilePic | File | Avatar |
+ Property | Type | Description 
+ ---- | ---- | ---- 
+ userId | String| unique ID for the user 
+ userName | String | name of the user 
+ profilePic | File | Avatar 
 
 ### Networking
 - [Add list of network requests by screen ]
