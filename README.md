@@ -67,7 +67,8 @@ An iOS app which allows UCSD students to sell their used items or buy used items
 * Item Screen
    * User can see the description of the item selected.
    * User can see the image of the item selected.
-   * User can navigate back to Home screen.
+   * User can navigate back to 
+   Home screen.
 
 
 ### 3. Navigation
