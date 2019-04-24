@@ -92,14 +92,14 @@ https://marvelapp.com/4711cbd/screen/55948944
 
 ## Schema 
 ### Models
-Post <br>
-Property | Type | Description
--------- | ---- | -------
-title | String | The title of the item
-objectId | String| unique ID for the user's post
-author | Pointer to user | The user that posted the item
-image | File | The image that describes the post
-description | String | The description for the item
+Post<br>
+Property | Type | Description<br>
+-------- | ---- | -------<br>
+title | String | The title of the item<br>
+objectId | String| unique ID for the user's post<br>
+author | Pointer to user | The user that posted the item<br>
+image | File | The image that describes the post<br>
+description | String | The description for the item<br>
 
 User
 Property | Type| Description
