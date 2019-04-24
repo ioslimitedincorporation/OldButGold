@@ -100,14 +100,14 @@ objectId | String| unique ID for the user's post<br>
 author | Pointer to user | The user that posted the item<br>
 image | File | The image that describes the post<br>
 description | String | The description for the item<br>
-
+/***
 User
 Property | Type| Description
 -------- | ---- | -------
 userId | String| unique ID for the user
 userName | String | name of the user
 profilePic | File | Avatar
-
+***/
 ### Networking
 - [Add list of network requests by screen ]
  Home Feed Screen
