@@ -92,7 +92,7 @@ https://marvelapp.com/4711cbd/screen/55948944
 
 ## Schema 
 ### Models
-Post
+Post <br>
 Property | Type | Description
 -------- | ---- | -------
 title | String | The title of the item
