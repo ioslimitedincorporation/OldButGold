@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		495BE2D7227295080033BF94 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 495BE2D6227295080033BF94 /* GoogleService-Info.plist */; };
+		6B4F0003ECD57B59164CB7AF /* Pods_OldButGold.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B272CC708C001F0CC8A987AD /* Pods_OldButGold.framework */; };
 		F5A551BA2269626C004C6AB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A551B92269626C004C6AB8 /* AppDelegate.swift */; };
 		F5A551BC2269626C004C6AB8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A551BB2269626C004C6AB8 /* ViewController.swift */; };
 		F5A551BF2269626C004C6AB8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5A551BD2269626C004C6AB8 /* Main.storyboard */; };
@@ -15,6 +17,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		495BE2D6227295080033BF94 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7B5EBDA005C8EBE3095BD653 /* Pods-OldButGold.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OldButGold.release.xcconfig"; path = "Target Support Files/Pods-OldButGold/Pods-OldButGold.release.xcconfig"; sourceTree = "<group>"; };
+		B272CC708C001F0CC8A987AD /* Pods_OldButGold.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OldButGold.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9805438D29F758367AE5F6E /* Pods-OldButGold.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OldButGold.debug.xcconfig"; path = "Target Support Files/Pods-OldButGold/Pods-OldButGold.debug.xcconfig"; sourceTree = "<group>"; };
 		F5A551B62269626C004C6AB8 /* OldButGold.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OldButGold.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5A551B92269626C004C6AB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5A551BB2269626C004C6AB8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -29,17 +35,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B4F0003ECD57B59164CB7AF /* Pods_OldButGold.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		51CD895C2F845F546B9FFA7C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B272CC708C001F0CC8A987AD /* Pods_OldButGold.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		67235577DEBF356B115C7AD3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E9805438D29F758367AE5F6E /* Pods-OldButGold.debug.xcconfig */,
+				7B5EBDA005C8EBE3095BD653 /* Pods-OldButGold.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		F5A551AD2269626C004C6AB8 = {
 			isa = PBXGroup;
 			children = (
 				F5A551B82269626C004C6AB8 /* OldButGold */,
 				F5A551B72269626C004C6AB8 /* Products */,
+				67235577DEBF356B115C7AD3 /* Pods */,
+				51CD895C2F845F546B9FFA7C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,6 +81,7 @@
 		F5A551B82269626C004C6AB8 /* OldButGold */ = {
 			isa = PBXGroup;
 			children = (
+				495BE2D6227295080033BF94 /* GoogleService-Info.plist */,
 				F5A551B92269626C004C6AB8 /* AppDelegate.swift */,
 				F5A551BB2269626C004C6AB8 /* ViewController.swift */,
 				F5A551BD2269626C004C6AB8 /* Main.storyboard */,
@@ -71,9 +99,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F5A551C82269626D004C6AB8 /* Build configuration list for PBXNativeTarget "OldButGold" */;
 			buildPhases = (
+				DB6DE92A22FBEB413166CA59 /* [CP] Check Pods Manifest.lock */,
 				F5A551B22269626C004C6AB8 /* Sources */,
 				F5A551B32269626C004C6AB8 /* Frameworks */,
 				F5A551B42269626C004C6AB8 /* Resources */,
+				0A0A0238E7C8021A71F5CC73 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -123,12 +153,62 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5A551C42269626D004C6AB8 /* LaunchScreen.storyboard in Resources */,
+				495BE2D7227295080033BF94 /* GoogleService-Info.plist in Resources */,
 				F5A551C12269626D004C6AB8 /* Assets.xcassets in Resources */,
 				F5A551BF2269626C004C6AB8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0A0A0238E7C8021A71F5CC73 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OldButGold/Pods-OldButGold-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OldButGold/Pods-OldButGold-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DB6DE92A22FBEB413166CA59 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OldButGold-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F5A551B22269626C004C6AB8 /* Sources */ = {
@@ -280,6 +360,7 @@
 		};
 		F5A551C92269626D004C6AB8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E9805438D29F758367AE5F6E /* Pods-OldButGold.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -298,6 +379,7 @@
 		};
 		F5A551CA2269626D004C6AB8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7B5EBDA005C8EBE3095BD653 /* Pods-OldButGold.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
