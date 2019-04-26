@@ -67,8 +67,7 @@ An iOS app which allows UCSD students to sell their used items or buy used items
 * Item Screen
    * User can see the description of the item selected.
    * User can see the image of the item selected.
-   * User can navigate back to 
-   Home screen.
+   * User can navigate back to Home screen.
 
 
 ### 3. Navigation
@@ -93,29 +92,53 @@ https://marvelapp.com/4711cbd/screen/55948944
 
 ## Schema 
 ### Models
-Post<br>
-Property | Type | Description<br>
--------- | ---- | -------<br>
-title | String | The title of the item<br>
-objectId | String| unique ID for the user's post<br>
-author | Pointer to user | The user that posted the item<br>
-image | File | The image that describes the post<br>
-description | String | The description for the item<br>
-/***
-User
-Property | Type| Description
--------- | ---- | -------
-userId | String| unique ID for the user
-userName | String | name of the user
-profilePic | File | Avatar
-***/
+Object: Post
+| Property | Type| Description|
+| -------- | ---- | ------- |
+| title | String | The title of the item |
+| objectId | String| unique ID for the user's post |
+| author | Pointer to user | The user that posted the item |
+| image | File | The image that describes the post|
+| description | String | The description for the item |
+Object: User
+| Property | Type| Description|
+| -------- | ---- | ------- |
+| userId | String| unique ID for the user |
+| userName | String | name of the user |
+| profilePic | File | Avatar |
+
 ### Networking
-- [Add list of network requests by screen ]
- Home Feed Screen
+
+ - Home Feed Screen
  1. (Read/GET) Query all the item's titles from the database.
- Item Screen
- 1. (Read/GET) Query the detail about the item selected.
- Post Screen
+ - Item Screen
+  1. (Read/GET) Query the detail about the item selected.
+```
+ let userID = Auth.auth().currentUser?.uid
+ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+  // Get user value
+  let value = snapshot.value as? NSDictionary
+  let username = value?["username"] as? String ?? ""
+  let user = User(username: username)
+
+  // ...
+  }) { (error) in
+    print(error.localizedDescription)
+}
+```
+
+ - Post Screen
  1. (Create/POST) Post the new item as an author.
-- [Create basic snippets for each Parse network request]
+
+```
+ref.child("users").child(user.uid).setValue(["username": username]) {
+  (error:Error?, ref:DatabaseReference) in
+  if let error = error {
+    print("Data could not be saved: \(error).")
+  } else {
+    print("Data saved successfully!")
+  }
+}
+```
+
 - [OPTIONAL: List endpoints if using existing API such as Yelp]
