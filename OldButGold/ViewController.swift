@@ -8,13 +8,35 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 50 // TODO change to post count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        
+        cell.textLabel?.text = "row:\(indexPath.row)"
+        return cell
+    }
+    
 
+    
+    @IBOutlet weak var homeTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.、
-        print("frank")
+        print("Hello")
+        
+        homeTableView.dataSource = self
+        homeTableView.delegate = self
+        
+            //update with database
+        
     }
+    
+
 
 
 }
