@@ -144,7 +144,7 @@ ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapsh
 ```
 
  3. Post Screen
-  -(Create/POST) Post the new item as an author.
+  - (Create/POST) Post the new item as an author.
 
 ```
 ref.child("users").child(user.uid).setValue(["username": username]) {
