@@ -93,17 +93,20 @@ https://marvelapp.com/4711cbd/screen/55948944
 ## Schema 
 ### Models
 Object: Post
-| Property | Type| Description|
+
+| Property | Type | Description |
 | -------- | ---- | ------- |
 | title | String | The title of the item |
-| objectId | String| unique ID for the user's post |
+| objectId | String | unique ID for the user's post |
 | author | Pointer to user | The user that posted the item |
 | image | File | The image that describes the post|
 | description | String | The description for the item |
+
 Object: User
-| Property | Type| Description|
+
+| Property | Type | Description |
 | -------- | ---- | ------- |
-| userId | String| unique ID for the user |
+| userId | String | unique ID for the user |
 | userName | String | name of the user |
 | profilePic | File | Avatar |
 
