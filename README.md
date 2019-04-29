@@ -112,10 +112,23 @@ Object: User
 
 ### Networking
 
- - Home Feed Screen
- 1. (Read/GET) Query all the item's titles from the database.
- - Item Screen
-  1. (Read/GET) Query the detail about the item selected.
+ 1. Home Feed Screen
+  - (Read/GET) Query all the item's titles from the database.
+  ```
+ let userID = Auth.auth().currentUser?.uid
+ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+  // Get user value
+  let value = snapshot.value as? NSDictionary
+  let username = value?["username"] as? String ?? ""
+  let user = User(username: username)
+
+  // ...
+  }) { (error) in
+    print(error.localizedDescription)
+}
+```
+ 2. Item Screen
+  - (Read/GET) Query the detail about the item selected.
 ```
  let userID = Auth.auth().currentUser?.uid
 ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
@@ -130,8 +143,8 @@ ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapsh
 }
 ```
 
- - Post Screen
- 1. (Create/POST) Post the new item as an author.
+ 3. Post Screen
+  -(Create/POST) Post the new item as an author.
 
 ```
 ref.child("users").child(user.uid).setValue(["username": username]) {
