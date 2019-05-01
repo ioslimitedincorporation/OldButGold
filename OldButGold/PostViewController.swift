@@ -7,15 +7,36 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class PostViewController: UIViewController {
+    
+    var ref: DatabaseReference!
+    
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        //ref = Database.database().reference()
+        //let title = "test"
+        //self.ref.child("Posts").setValue(["Post": title])
         // Do any additional setup after loading the view.
+        read()
     }
-    
+    func read(){
+        ref = Database.database().reference()
+        ref.child("Posts").observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            let value = snapshot.value as? NSDictionary
+            let title = value?["Post"] as? String ?? ""
+            print(title)
+            print("hi")
+            // ...
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+
+    }
 
     /*
     // MARK: - Navigation

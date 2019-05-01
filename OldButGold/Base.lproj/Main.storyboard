@@ -44,10 +44,10 @@
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="-196.20535714285714"/>
         </scene>
-        <!--Post View Controller-->
+        <!--PostViewController-->
         <scene sceneID="6E7-lh-6m5">
             <objects>
-                <viewController id="FSJ-nn-lKh" customClass="PostViewController" customModule="OldButGold" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="PostViewController" id="FSJ-nn-lKh" customClass="PostViewController" customModule="OldButGold" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qoz-MJ-Ilp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
