@@ -9,15 +9,17 @@
 import UIKit
 
 class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegate {
-    
+
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 50 // TODO change to post count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as! PostCell
         
-        cell.textLabel?.text = "row:\(indexPath.row)"
+        cell.titleLabel.text = "row:\(indexPath.row)"
+        cell.descriptionLabel.text = "TODO insert "
         return cell
     }
     
