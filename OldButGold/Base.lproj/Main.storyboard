@@ -29,7 +29,11 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="home" id="U84-Li-llu">
-                        <barButtonItem key="rightBarButtonItem" title="post" id="n9F-6c-8Cn"/>
+                        <barButtonItem key="rightBarButtonItem" title="post" id="n9F-6c-8Cn">
+                            <connections>
+                                <segue destination="FSJ-nn-lKh" kind="presentation" id="QRa-pm-nW7"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -39,6 +43,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="-196.20535714285714"/>
+        </scene>
+        <!--Post View Controller-->
+        <scene sceneID="6E7-lh-6m5">
+            <objects>
+                <viewController id="FSJ-nn-lKh" customClass="PostViewController" customModule="OldButGold" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qoz-MJ-Ilp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="8u9-GL-fOa"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="icK-U2-To4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1014" y="-200"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="HMi-0r-mUp">
