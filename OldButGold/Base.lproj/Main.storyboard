@@ -69,6 +69,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="homeTableView" destination="yJj-HW-aGr" id="Ylw-ez-NrW"/>
+                        <outlet property="tableView" destination="yJj-HW-aGr" id="Nzl-tg-zEZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
