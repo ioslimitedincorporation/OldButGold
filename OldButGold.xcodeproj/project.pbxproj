@@ -10,6 +10,8 @@
 		495BE2D7227295080033BF94 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 495BE2D6227295080033BF94 /* GoogleService-Info.plist */; };
 		6B4F0003ECD57B59164CB7AF /* Pods_OldButGold.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B272CC708C001F0CC8A987AD /* Pods_OldButGold.framework */; };
 		AF258C78227929DB00C70451 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF258C77227929DB00C70451 /* PostViewController.swift */; };
+		F51632AD22792CB7007CED36 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51632AC22792CB7007CED36 /* PostCell.swift */; };
+		F51632AF22793116007CED36 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51632AE22793116007CED36 /* DetailViewController.swift */; };
 		F5A551BA2269626C004C6AB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A551B92269626C004C6AB8 /* AppDelegate.swift */; };
 		F5A551BC2269626C004C6AB8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A551BB2269626C004C6AB8 /* ViewController.swift */; };
 		F5A551BF2269626C004C6AB8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5A551BD2269626C004C6AB8 /* Main.storyboard */; };
@@ -23,6 +25,8 @@
 		AF258C77227929DB00C70451 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		B272CC708C001F0CC8A987AD /* Pods_OldButGold.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OldButGold.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9805438D29F758367AE5F6E /* Pods-OldButGold.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OldButGold.debug.xcconfig"; path = "Target Support Files/Pods-OldButGold/Pods-OldButGold.debug.xcconfig"; sourceTree = "<group>"; };
+		F51632AC22792CB7007CED36 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
+		F51632AE22793116007CED36 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		F5A551B62269626C004C6AB8 /* OldButGold.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OldButGold.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5A551B92269626C004C6AB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5A551BB2269626C004C6AB8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +90,8 @@
 				F5A551B92269626C004C6AB8 /* AppDelegate.swift */,
 				F5A551BB2269626C004C6AB8 /* ViewController.swift */,
 				F5A551BD2269626C004C6AB8 /* Main.storyboard */,
+				F51632AE22793116007CED36 /* DetailViewController.swift */,
+				F51632AC22792CB7007CED36 /* PostCell.swift */,
 				F5A551C02269626D004C6AB8 /* Assets.xcassets */,
 				F5A551C22269626D004C6AB8 /* LaunchScreen.storyboard */,
 				F5A551C52269626D004C6AB8 /* Info.plist */,
@@ -221,7 +227,9 @@
 			files = (
 				AF258C78227929DB00C70451 /* PostViewController.swift in Sources */,
 				F5A551BC2269626C004C6AB8 /* ViewController.swift in Sources */,
+				F51632AF22793116007CED36 /* DetailViewController.swift in Sources */,
 				F5A551BA2269626C004C6AB8 /* AppDelegate.swift in Sources */,
+				F51632AD22792CB7007CED36 /* PostCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
