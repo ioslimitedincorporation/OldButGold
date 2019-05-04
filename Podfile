@@ -8,5 +8,7 @@ target 'OldButGold' do
   # Pods for OldButGold
   pod 'Firebase/Core'
   pod 'Firebase/Database'
+  pod 'Firebase/Storage'
+  pod 'AlamofireImage'
 
 end
