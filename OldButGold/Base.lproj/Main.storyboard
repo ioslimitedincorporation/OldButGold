@@ -76,20 +76,83 @@
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="-196.20535714285714"/>
         </scene>
-        <!--Post View Controller-->
+        <!--PostViewController-->
         <scene sceneID="6E7-lh-6m5">
             <objects>
-                <viewController id="FSJ-nn-lKh" customClass="PostViewController" customModule="OldButGold" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="PostViewController" id="FSJ-nn-lKh" customClass="PostViewController" customModule="OldButGold" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qoz-MJ-Ilp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hRJ-By-4tX">
+                                <rect key="frame" x="85" y="205" width="34" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r1p-4P-Lra">
+                                <rect key="frame" x="58" y="303" width="88" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LIm-jC-75U">
+                                <rect key="frame" x="58" y="332" width="233" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Picture" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qkS-kn-nnz">
+                                <rect key="frame" x="58" y="383" width="54" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="c" translatesAutoresizingMaskIntoConstraints="NO" id="iqC-ea-pdG">
+                                <rect key="frame" x="58" y="412" width="298" height="263"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="qVf-8t-s2m" appends="YES" id="eEP-nM-cQc"/>
+                                </connections>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c3o-5Z-C6M">
+                                <rect key="frame" x="143" y="200" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RBQ-Nb-3pu">
+                                <rect key="frame" x="167" y="743" width="49" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="onSubmit:" destination="FSJ-nn-lKh" eventType="touchUpInside" id="CqS-9o-2Zh"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="8u9-GL-fOa"/>
                     </view>
+                    <connections>
+                        <outlet property="descriptionField" destination="LIm-jC-75U" id="uif-fh-Rdc"/>
+                        <outlet property="image" destination="iqC-ea-pdG" id="JgS-Gj-XII"/>
+                        <outlet property="titleField" destination="c3o-5Z-C6M" id="s9Y-Tx-XfN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="icK-U2-To4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="qVf-8t-s2m">
+                    <connections>
+                        <action selector="onTapCamera:" destination="FSJ-nn-lKh" id="X8e-7F-45u"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="962" y="-422"/>
+            <point key="canvasLocation" x="960.86956521739137" y="-422.54464285714283"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="Kvi-mq-ZOx">
@@ -125,4 +188,7 @@
             <point key="canvasLocation" x="-578" y="-196"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="c" width="960" height="500"/>
+    </resources>
 </document>
