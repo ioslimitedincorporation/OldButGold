@@ -156,8 +156,7 @@ ref.child("users").child(user.uid).setValue(["username": username]) {
   }
 }
 ```
-
-- GIF Sprint 1
+### GIF Sprint 1
 
 ![Alt Text](https://media.giphy.com/media/jSDPuwAdIOT8FvVBRf/giphy.gif)
 
