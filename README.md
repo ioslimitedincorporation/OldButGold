@@ -157,4 +157,9 @@ ref.child("users").child(user.uid).setValue(["username": username]) {
 }
 ```
 
+- GIF Sprint 1
+
+![Alt Text](https://media.giphy.com/media/jSDPuwAdIOT8FvVBRf/giphy.gif)
+
+
 - [OPTIONAL: List endpoints if using existing API such as Yelp]
