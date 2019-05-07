@@ -26,15 +26,15 @@ An iOS app which allows UCSD students to sell their used items or buy used items
 
 **Required Must-have Stories**
 
-* Make a post
-* Provide a title for the post
-* Provide a description for the post
-* Provide a image for the post
-* Provide a price for the post
-* Prove contact infomartion 
-* Show the posts in the home feed using tableView and scroll bar 
-* allow pull to refresh 
-* Search for the posts
+[x] Make a post
+[x] Provide a title for the post
+[x] Provide a description for the post
+[x] Provide a image for the post
+[] Provide a price for the post
+[] Prove contact infomartion 
+[x] Show the posts in the home feed using tableView and scroll bar 
+[] allow pull to refresh 
+[] Search for the posts
 
 **Optional Nice-to-have Stories**
 
