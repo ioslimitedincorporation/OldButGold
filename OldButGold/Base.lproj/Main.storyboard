@@ -30,21 +30,28 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="132.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="taX-Q3-lDa">
-                                                    <rect key="frame" x="20" y="43" width="346" height="54"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="item title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="us9-5r-d0j">
-                                                    <rect key="frame" x="20" y="14" width="73" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="item title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="us9-5r-d0j">
+                                                    <rect key="frame" x="20" y="19" width="374" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="taX-Q3-lDa">
+                                                    <rect key="frame" x="20" y="45.5" width="374" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="taX-Q3-lDa" firstAttribute="trailing" secondItem="kdG-Wi-IF6" secondAttribute="trailingMargin" id="MSo-Fg-7zp"/>
+                                                <constraint firstItem="us9-5r-d0j" firstAttribute="leading" secondItem="kdG-Wi-IF6" secondAttribute="leadingMargin" id="cJ3-xz-fWr"/>
+                                                <constraint firstItem="taX-Q3-lDa" firstAttribute="leading" secondItem="kdG-Wi-IF6" secondAttribute="leadingMargin" id="edk-by-xmD"/>
+                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="taX-Q3-lDa" secondAttribute="bottom" priority="750" constant="5" id="itE-ud-fiz"/>
+                                                <constraint firstItem="us9-5r-d0j" firstAttribute="trailing" secondItem="kdG-Wi-IF6" secondAttribute="trailingMargin" id="ptQ-Wg-MHA"/>
+                                                <constraint firstItem="us9-5r-d0j" firstAttribute="top" secondItem="kdG-Wi-IF6" secondAttribute="topMargin" constant="8" id="wur-Fz-zdc"/>
+                                                <constraint firstItem="taX-Q3-lDa" firstAttribute="top" secondItem="us9-5r-d0j" secondAttribute="bottom" constant="6" id="zo4-Xu-4gb"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="descriptionLabel" destination="taX-Q3-lDa" id="o09-0O-dcb"/>

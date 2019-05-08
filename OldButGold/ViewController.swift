@@ -16,8 +16,12 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
     var posts: [[String:Any]] = []
     //var posts: [String:[String:Any]] = [:]
     
+    
+    let myRefreshControl = UIRefreshControl()
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return posts.count// TODO change to post count
+        return posts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -35,13 +39,15 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
     }
     
 
-    func read(){
+    @objc func read(){
         ref = Database.database().reference()
         ref.child("Posts").observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
             let dict = snapshot.value as? [String:[String:Any]]
             
-         
+            self.posts = []
+            
+            //TODO fix bug when the database is empty
             for (key, value) in dict! {
                 self.posts.append(value)
             }
@@ -50,8 +56,8 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
         }) { (error) in
             print(error.localizedDescription)
         }
-        
-        
+        self.tableView.reloadData()
+        self.myRefreshControl.endRefreshing()
     }
     
     @IBOutlet weak var homeTableView: UITableView!
@@ -61,14 +67,24 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
         read()
         homeTableView.dataSource = self
         homeTableView.delegate = self
-        
-        
-            //update with database
-        
+        self.tableView.reloadData()
+
+        myRefreshControl.addTarget(self, action: #selector(read), for: .valueChanged)
+        tableView.refreshControl = myRefreshControl
+
     }
     
 
-
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidLoad()
+        read()
+        homeTableView.dataSource = self
+        homeTableView.delegate = self
+        self.tableView.reloadData()
+        
+        
+        //update with database
+    }
 
 }
 
