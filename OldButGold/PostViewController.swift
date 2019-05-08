@@ -47,7 +47,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         else {
             navigationController?.popViewController(animated: true)
             ref = Database.database().reference()
-            let post = ref.child("Posts").childByAutoId()
+            let postRef = ref.child("Posts").childByAutoId()
             // Get a reference to the storage service using the default Firebase App
             let storage = Storage.storage()
             
@@ -55,7 +55,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             let storageRef = storage.reference()
             
             let data = image.image!.pngData()
-            let picRef = storageRef.child("images/" + post.key!)
+            let picRef = storageRef.child("images/" + postRef.key!)
             
             picRef.putData(data!, metadata: nil) { (metadata, error) in
                 /*guard let metadata = metadata else {
@@ -65,13 +65,14 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                 // Metadata contains file metadata such as size, content-type.
                 //let size = metadata.size
                 // You can also access to download URL after upload.
+                let timestamp = Date().timeIntervalSince1970
                 picRef.downloadURL { (url, error) in
                     guard let downloadURL = url?.absoluteString else {
                         // Uh-oh, an error occurred!
                         return
                     }
                     print(downloadURL)
-                    post.setValue(["title": (self.titleField.text)! , "description": (self.descriptionField.text)!, "image": downloadURL])
+                    postRef.setValue(["title": (self.titleField.text)! , "description": (self.descriptionField.text)!, "image": downloadURL,"timestamp":timestamp])
                 }
             }
         }
