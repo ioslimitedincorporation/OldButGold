@@ -17,19 +17,28 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
     
+    var post: [String:Any]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        let ref = Database.database().reference()
+  
+        self.titleLabel.text = post?["title"] as? String
+        self.detailLabel.text = post?["description"] as? String
         
-        ref.child("Posts/someKey").observeSingleEvent(of: .value) { (snapshot) in
+        
+        
+        
+        // Do any additional setup after loading the view.
+        /*let ref = Database.database().reference()
+        
+        let key = post[""] as! String
+        ref.child("Posts/" + key).observeSingleEvent(of: .value) { (snapshot) in
             let thisPost = snapshot.value as? [String:Any]
             
             self.titleLabel.text = thisPost?["title"] as? String
             self.detailLabel.text = thisPost?["description"] as? String
-        }
+        } */
+        
     }
     
     

@@ -91,7 +91,12 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
         // Find the selected post.
         let cell = sender as! UITableViewCell
         let indexPath = homeTableView.indexPath(for: cell)!
-        let post = posts[
+        let post = posts[indexPath.row]
+        
+        // Pass the selected post to the detail view controller
+        let detailsViewController = segue.destination as! DetailViewController
+        
+        detailsViewController.post = post
     }
 
 }
