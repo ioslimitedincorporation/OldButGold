@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseDatabase
+import AlamofireImage
 
 
 class DetailViewController: UIViewController {
@@ -22,9 +23,12 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
   
-        self.titleLabel.text = post?["title"] as? String
-        self.detailLabel.text = post?["description"] as? String
+        self.titleLabel.text = post["title"] as? String
+        self.detailLabel.text = post["description"] as? String
         
+        let imageUrl = URL(string: post?["image"] as! String)
+        
+        DetailImage.af_setImage(withURL: imageUrl!)
         
         
         
