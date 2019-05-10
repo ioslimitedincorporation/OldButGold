@@ -85,6 +85,14 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
         
         //update with database
     }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Find the selected post.
+        let cell = sender as! UITableViewCell
+        let indexPath = homeTableView.indexPath(for: cell)!
+        let post = posts[
+    }
 
 }
 
