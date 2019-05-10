@@ -81,9 +81,24 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
         homeTableView.dataSource = self
         homeTableView.delegate = self
         self.tableView.reloadData()
-        
-        
         //update with database
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Find the selected post.
+        let cell = sender as! UITableViewCell
+        let indexPath = homeTableView.indexPath(for: cell)!
+        let post = posts[indexPath.row]
+        
+        // Pass the selected post to the detail view controller
+        let detailsViewController = segue.destination as! DetailViewController
+        
+        detailsViewController.post = post
+        
+        // When the user select one row, we don't want them to see the shadow of that row when they come back
+        // from the detail screen.
+        homeTableView.deselectRow(at: indexPath, animated: true)
     }
 
 }
