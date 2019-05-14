@@ -70,7 +70,10 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                         // Uh-oh, an error occurred!
                         return
                     }
-                    print(downloadURL)
+                    //print(downloadURL)
+                    //print(Auth.auth().currentUser!.uid)
+                    let user = self.ref.child("Users").child(Auth.auth().currentUser!.uid)
+                    user.child("post").setValue([post.key: post.key])
                     post.setValue(["title": (self.titleField.text)! , "description": (self.descriptionField.text)!, "image": downloadURL])
                 }
             }

@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 
 
+
 class LoginViewController: UIViewController {
     
     @IBOutlet weak var emailField: UITextField!
@@ -21,14 +22,6 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        var actionCodeSettings = ActionCodeSettings()
-//        actionCodeSettings.url = URL(string: "https://example.appspot.com")
-//        actionCodeSettings.handleCodeInApp = true
-//        actionCodeSettings.setAndroidPackageName("com.firebase.example", installIfNotAvailable: false, minimumVersion: "12")
-//
-//        let provider = FUIEmailAuth.initAuthAuthUI(FUIAuth.defaultAuthUI(), signInMethod: FIREmailLinkAuthSignInMethod, forceSameDevice: false, allowNewEmailAccounts: true, actionCodeSetting: actionCodeSettings)
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func onSignIn(_ sender: Any) {

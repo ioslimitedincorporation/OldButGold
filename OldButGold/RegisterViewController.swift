@@ -53,17 +53,14 @@ class RegisterViewController: UIViewController {
                     
                 })
                 //implement an alert
-                self.back(self)
                 //let ref = user?.user.uid
                 //ref.
+                self.navigationController?.popViewController(animated: true)
             }
     
         }
     
-    @IBAction func back(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
-    
+
     /*
     // MARK: - Navigation
 
