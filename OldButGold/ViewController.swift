@@ -85,7 +85,7 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
     }
     
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Find the selected post.
         let cell = sender as! UITableViewCell
         let indexPath = homeTableView.indexPath(for: cell)!
@@ -99,7 +99,7 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
         // When the user select one row, we don't want them to see the shadow of that row when they come back
         // from the detail screen.
         homeTableView.deselectRow(at: indexPath, animated: true)
-    }
+    }*/
 
 }
 
