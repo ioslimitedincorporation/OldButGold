@@ -33,7 +33,7 @@ An iOS app which allows UCSD students to sell their used items or buy used items
 - [ ] Provide a price for the post
 - [ ] Prove contact infomartion 
 - [x] Show the posts in the home feed using tableView and scroll bar 
-- [ ] allow pull to refresh 
+- [x] allow pull to refresh 
 - [ ] Search for the posts
 
 **Optional Nice-to-have Stories**
@@ -160,5 +160,7 @@ ref.child("users").child(user.uid).setValue(["username": username]) {
 
 ![Alt Text](https://media.giphy.com/media/jSDPuwAdIOT8FvVBRf/giphy.gif)
 
+### GIF Sprint 2
 
+![Alt Text](http://g.recordit.co/H5tI3mwwXp.gif)
 - [OPTIONAL: List endpoints if using existing API such as Yelp]
