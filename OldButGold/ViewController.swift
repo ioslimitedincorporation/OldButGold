@@ -27,10 +27,10 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as! PostCell
         
-        print(indexPath.row)
+        //print(indexPath.row)
         
         let post = self.posts[indexPath.row]
-        print(post)
+        //print(post)
     
         cell.titleLabel.text = post["title"] as! String
         //cell.titleLabel.text = posts[
@@ -51,7 +51,7 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
             for (key, value) in dict! {
                 self.posts.append(value)
             }
-            print(self.posts)
+            //print(self.posts)
             self.tableView.reloadData()
         }) { (error) in
             print(error.localizedDescription)
@@ -85,7 +85,7 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
     }
     
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Find the selected post.
         let cell = sender as! UITableViewCell
         let indexPath = homeTableView.indexPath(for: cell)!
@@ -99,7 +99,7 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
         // When the user select one row, we don't want them to see the shadow of that row when they come back
         // from the detail screen.
         homeTableView.deselectRow(at: indexPath, animated: true)
-    }
+    }*/
 
 }
 

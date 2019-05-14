@@ -10,6 +10,7 @@
 		495BE2D7227295080033BF94 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 495BE2D6227295080033BF94 /* GoogleService-Info.plist */; };
 		6B4F0003ECD57B59164CB7AF /* Pods_OldButGold.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B272CC708C001F0CC8A987AD /* Pods_OldButGold.framework */; };
 		AF258C78227929DB00C70451 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF258C77227929DB00C70451 /* PostViewController.swift */; };
+		AF59FD26228A896F00AC31AC /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF59FD25228A896F00AC31AC /* RegisterViewController.swift */; };
 		AFDBC17A22850BE80018252E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDBC17922850BE80018252E /* LoginViewController.swift */; };
 		F51632AD22792CB7007CED36 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51632AC22792CB7007CED36 /* PostCell.swift */; };
 		F51632AF22793116007CED36 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51632AE22793116007CED36 /* DetailViewController.swift */; };
@@ -24,6 +25,7 @@
 		495BE2D6227295080033BF94 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7B5EBDA005C8EBE3095BD653 /* Pods-OldButGold.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OldButGold.release.xcconfig"; path = "Target Support Files/Pods-OldButGold/Pods-OldButGold.release.xcconfig"; sourceTree = "<group>"; };
 		AF258C77227929DB00C70451 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		AF59FD25228A896F00AC31AC /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		AFDBC17922850BE80018252E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B272CC708C001F0CC8A987AD /* Pods_OldButGold.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OldButGold.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9805438D29F758367AE5F6E /* Pods-OldButGold.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OldButGold.debug.xcconfig"; path = "Target Support Files/Pods-OldButGold/Pods-OldButGold.debug.xcconfig"; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				F5A551C22269626D004C6AB8 /* LaunchScreen.storyboard */,
 				F5A551C52269626D004C6AB8 /* Info.plist */,
 				AF258C77227929DB00C70451 /* PostViewController.swift */,
+				AF59FD25228A896F00AC31AC /* RegisterViewController.swift */,
 			);
 			path = OldButGold;
 			sourceTree = "<group>";
@@ -115,6 +118,7 @@
 				F5A551B32269626C004C6AB8 /* Frameworks */,
 				F5A551B42269626C004C6AB8 /* Resources */,
 				0A0A0238E7C8021A71F5CC73 /* [CP] Embed Pods Frameworks */,
+				8B15A32A09ADE644F4E73C74 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -184,8 +188,19 @@
 				"${PODS_ROOT}/Target Support Files/Pods-OldButGold/Pods-OldButGold-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${PODS_ROOT}/TwitterCore/iOS/TwitterCore.framework",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -195,14 +210,63 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OldButGold/Pods-OldButGold-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8B15A32A09ADE644F4E73C74 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OldButGold/Pods-OldButGold-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAnonymousAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseEmailAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseFacebookAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseGoogleAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebasePhoneAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseTwitterAuthUI.bundle",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterKitResources.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAnonymousAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseEmailAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseFacebookAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseGoogleAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebasePhoneAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseTwitterAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TwitterKitResources.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OldButGold/Pods-OldButGold-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DB6DE92A22FBEB413166CA59 /* [CP] Check Pods Manifest.lock */ = {
@@ -236,6 +300,7 @@
 			files = (
 				AFDBC17A22850BE80018252E /* LoginViewController.swift in Sources */,
 				AF258C78227929DB00C70451 /* PostViewController.swift in Sources */,
+				AF59FD26228A896F00AC31AC /* RegisterViewController.swift in Sources */,
 				F5A551BC2269626C004C6AB8 /* ViewController.swift in Sources */,
 				F51632AF22793116007CED36 /* DetailViewController.swift in Sources */,
 				F5A551BA2269626C004C6AB8 /* AppDelegate.swift in Sources */,

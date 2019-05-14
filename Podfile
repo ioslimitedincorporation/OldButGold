@@ -6,6 +6,8 @@ target 'OldButGold' do
   use_frameworks!
 
   # Pods for OldButGold
+  pod 'FirebaseUI'
+  pod 'FirebaseUI/Auth'
   pod 'Firebase/Core'
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
