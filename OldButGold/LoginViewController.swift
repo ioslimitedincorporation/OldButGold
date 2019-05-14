@@ -32,6 +32,17 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func onSignIn(_ sender: Any) {
+        Auth.auth().signIn(withEmail: emailField.text! + "@ucsd.edu",
+                           password: passwordField.text!) { (user, error) in
+            if error != nil{
+                print("ERROR")
+                print(error!)
+                return
+            }else{
+                print("success")
+                self.performSegue(withIdentifier: "main", sender: self)
+            }
+        }
     }
     
 //    @IBAction func onSignUp(_ sender: Any) {

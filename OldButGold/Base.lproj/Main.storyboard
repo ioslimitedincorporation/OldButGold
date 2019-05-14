@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pUX-yd-EXV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Pb0-g5-ASp">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -258,6 +258,22 @@
             </objects>
             <point key="canvasLocation" x="1046" y="494"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="fv6-lH-aOA">
+            <objects>
+                <navigationController id="Pb0-g5-ASp" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hib-Mt-Lpi">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="pUX-yd-EXV" kind="relationship" relationship="rootViewController" id="sRI-6s-Hbb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dep-42-zpA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4557" y="-299"/>
+        </scene>
         <!--LoginViewController-->
         <scene sceneID="i84-74-6O0">
             <objects>
@@ -272,7 +288,6 @@
                                 <state key="normal" title="Sign In"/>
                                 <connections>
                                     <action selector="onSignIn:" destination="pUX-yd-EXV" eventType="touchUpInside" id="zP6-PX-2Af"/>
-                                    <segue destination="u65-3n-RGt" kind="presentation" id="mdm-IG-HmA"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h2h-dH-rw3">
@@ -308,7 +323,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Register"/>
                                 <connections>
-                                    <segue destination="SJM-Ut-gMx" kind="show" id="2T0-yT-xet"/>
+                                    <segue destination="SJM-Ut-gMx" kind="push" id="Ebn-sY-xOm"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="@ucsd.edu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V1m-1h-Abo">
@@ -323,9 +338,11 @@
                         <viewLayoutGuide key="safeArea" id="Tjg-hN-q4J"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="6YN-RP-1OY"/>
+                    <navigationItem key="navigationItem" id="Uve-A9-Zsh"/>
                     <connections>
                         <outlet property="emailField" destination="qA0-hK-3Uf" id="dia-nI-lFr"/>
                         <outlet property="passwordField" destination="tTp-ye-jZJ" id="JwZ-ot-J8j"/>
+                        <segue destination="u65-3n-RGt" kind="presentation" identifier="main" id="KOH-Id-fch"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h7E-Fu-73x" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -425,23 +442,11 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="family-name"/>
                             </textField>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y4s-aK-rlL">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="Title" id="O2a-6F-hTQ">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="Yak-fp-ndr">
-                                            <connections>
-                                                <action selector="back:" destination="SJM-Ut-gMx" id="EyO-Xo-LIp"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="cxJ-wV-Cwj"/>
                     </view>
+                    <navigationItem key="navigationItem" id="tWY-X3-Y5L"/>
                     <connections>
                         <outlet property="confirmPasswordField" destination="78i-v5-q9X" id="uDe-ad-QIX"/>
                         <outlet property="emailField" destination="Hk0-3h-OxT" id="hjK-Qh-4aG"/>
@@ -457,7 +462,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="Qvh-no-bcZ">
             <objects>
-                <tabBarController id="u65-3n-RGt" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="main" id="u65-3n-RGt" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lnv-eI-ACw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
