@@ -13,7 +13,7 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
 
     @IBOutlet weak var tableView: UITableView!
     var ref: DatabaseReference!
-    var posts: [[String:Any]] = []
+    var posts: [Post] = []
     //var posts: [String:[String:Any]] = [:]
     
     
@@ -32,9 +32,9 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
         let post = self.posts[indexPath.row]
         //print(post)
     
-        cell.titleLabel.text = post["title"] as! String
+        cell.titleLabel.text = post.title as! String
         //cell.titleLabel.text = posts[
-        cell.descriptionLabel.text = post["description"] as! String
+        cell.descriptionLabel.text = post.description as! String
         return cell
     }
     
@@ -45,13 +45,15 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
             // Get user value
             let dict = snapshot.value as? [String:[String:Any]]
             
-            self.posts = []
+            self.posts = [Post]()
             
             //TODO fix bug when the database is empty
-            for (key, value) in dict! {
-                self.posts.append(value)
+            for key in Array(dict!.keys){
+                self.posts.append(Post(dictionary: dict![key] as! [String : AnyObject], key: key))
             }
-            //print(self.posts)
+            self.posts.sort(by: {$0.timestamp > $1.timestamp})
+       
+            
             self.tableView.reloadData()
         }) { (error) in
             print(error.localizedDescription)

@@ -56,7 +56,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             
             let data = image.image!.pngData()
             let picRef = storageRef.child("images/" + post.key!)
-            
+            let timestamp = Date().timeIntervalSince1970
             picRef.putData(data!, metadata: nil) { (metadata, error) in
                 /*guard let metadata = metadata else {
                     // Uh-oh, an error occurred!
@@ -74,7 +74,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                     //print(Auth.auth().currentUser!.uid)
                     let user = self.ref.child("Users").child(Auth.auth().currentUser!.uid)
                     user.child("post").setValue([post.key: post.key])
-                    post.setValue(["title": (self.titleField.text)! , "description": (self.descriptionField.text)!, "image": downloadURL])
+                    post.setValue(["title": (self.titleField.text)! , "description": (self.descriptionField.text)!, "image": downloadURL, "timestamp": timestamp])
                 }
             }
         }
