@@ -12,6 +12,7 @@
 		AF258C78227929DB00C70451 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF258C77227929DB00C70451 /* PostViewController.swift */; };
 		AF59FD26228A896F00AC31AC /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF59FD25228A896F00AC31AC /* RegisterViewController.swift */; };
 		AFDBC17A22850BE80018252E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDBC17922850BE80018252E /* LoginViewController.swift */; };
+		AFFAA0C02290A1CE00A818BA /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFAA0BF2290A1CE00A818BA /* ImageCollectionViewCell.swift */; };
 		F51632AD22792CB7007CED36 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51632AC22792CB7007CED36 /* PostCell.swift */; };
 		F51632AF22793116007CED36 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51632AE22793116007CED36 /* DetailViewController.swift */; };
 		F55471FA228BA7B000FC00A6 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55471F9228BA7B000FC00A6 /* Post.swift */; };
@@ -30,6 +31,7 @@
 		AF258C77227929DB00C70451 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		AF59FD25228A896F00AC31AC /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		AFDBC17922850BE80018252E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		AFFAA0BF2290A1CE00A818BA /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		B272CC708C001F0CC8A987AD /* Pods_OldButGold.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OldButGold.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9805438D29F758367AE5F6E /* Pods-OldButGold.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OldButGold.debug.xcconfig"; path = "Target Support Files/Pods-OldButGold/Pods-OldButGold.debug.xcconfig"; sourceTree = "<group>"; };
 		F51632AC22792CB7007CED36 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				F5A551B92269626C004C6AB8 /* AppDelegate.swift */,
 				F5A551BB2269626C004C6AB8 /* ViewController.swift */,
 				F5A551BD2269626C004C6AB8 /* Main.storyboard */,
+				AFFAA0BF2290A1CE00A818BA /* ImageCollectionViewCell.swift */,
 				F55471FE228BABFF00FC00A6 /* ProfileViewController.swift */,
 				AFDBC17922850BE80018252E /* LoginViewController.swift */,
 				F51632AE22793116007CED36 /* DetailViewController.swift */,
@@ -205,7 +208,9 @@
 				"${PODS_ROOT}/Target Support Files/Pods-OldButGold/Pods-OldButGold-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
-				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/BSGridCollectionViewLayout/BSGridCollectionViewLayout.framework",
+				"${BUILT_PRODUCTS_DIR}/BSImagePicker/BSImagePicker.framework",
+				"${BUILT_PRODUCTS_DIR}/BSImageView/BSImageView.framework",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
@@ -214,8 +219,6 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${PODS_ROOT}/TwitterCore/iOS/TwitterCore.framework",
-				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -227,7 +230,9 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BSGridCollectionViewLayout.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BSImagePicker.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BSImageView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
@@ -236,8 +241,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterCore.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
@@ -263,9 +266,7 @@
 				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseFacebookAuthUI.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseGoogleAuthUI.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebasePhoneAuthUI.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseTwitterAuthUI.bundle",
 				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
-				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterKitResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
@@ -277,9 +278,7 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseFacebookAuthUI.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseGoogleAuthUI.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebasePhoneAuthUI.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseTwitterAuthUI.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TwitterKitResources.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -316,6 +315,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFDBC17A22850BE80018252E /* LoginViewController.swift in Sources */,
+				AFFAA0C02290A1CE00A818BA /* ImageCollectionViewCell.swift in Sources */,
 				AF258C78227929DB00C70451 /* PostViewController.swift in Sources */,
 				F55471FF228BABFF00FC00A6 /* ProfileViewController.swift in Sources */,
 				AF59FD26228A896F00AC31AC /* RegisterViewController.swift in Sources */,
@@ -472,7 +472,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4M66U5R36Y;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = OldButGold/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -491,7 +491,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4M66U5R36Y;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = OldButGold/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
