@@ -12,5 +12,6 @@ target 'OldButGold' do
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
   pod 'AlamofireImage'
+  pod 'BSImagePicker'
 
 end
