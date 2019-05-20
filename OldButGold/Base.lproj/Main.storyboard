@@ -119,14 +119,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="c" translatesAutoresizingMaskIntoConstraints="NO" id="iqC-ea-pdG">
-                                <rect key="frame" x="58" y="412" width="298" height="263"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="qVf-8t-s2m" appends="YES" id="eEP-nM-cQc"/>
-                                </connections>
-                            </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c3o-5Z-C6M">
                                 <rect key="frame" x="143" y="200" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -142,24 +134,64 @@
                                     <action selector="onSubmit:" destination="FSJ-nn-lKh" eventType="touchUpInside" id="CqS-9o-2Zh"/>
                                 </connections>
                             </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fVi-Y4-EhJ">
+                                <rect key="frame" x="0.0" y="412" width="414" height="251"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="2nB-o7-RAb">
+                                    <size key="itemSize" width="122" height="122"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="Eam-n2-bbg" customClass="ImageCollectionViewCell" customModule="OldButGold" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="122" height="122"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="122" height="122"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="c" translatesAutoresizingMaskIntoConstraints="NO" id="iqC-ea-pdG">
+                                                    <rect key="frame" x="0.0" y="0.0" width="122" height="122"/>
+                                                    <gestureRecognizers/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="iqC-ea-pdG" firstAttribute="centerX" secondItem="Eam-n2-bbg" secondAttribute="centerX" id="3Sr-9f-SyL"/>
+                                            <constraint firstItem="iqC-ea-pdG" firstAttribute="height" secondItem="Eam-n2-bbg" secondAttribute="height" id="5sG-Vq-r4A"/>
+                                            <constraint firstItem="iqC-ea-pdG" firstAttribute="width" secondItem="Eam-n2-bbg" secondAttribute="width" id="BQG-fJ-IfT"/>
+                                            <constraint firstItem="iqC-ea-pdG" firstAttribute="centerY" secondItem="Eam-n2-bbg" secondAttribute="centerY" id="fgP-73-E2l"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="imageView" destination="iqC-ea-pdG" id="AyX-tK-tJi"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L0s-MT-5Yr">
+                                <rect key="frame" x="240" y="671" width="57" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Clear All"/>
+                                <connections>
+                                    <action selector="clearAll:" destination="FSJ-nn-lKh" eventType="touchUpInside" id="spq-FK-hoV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="8u9-GL-fOa"/>
                     </view>
                     <connections>
                         <outlet property="descriptionField" destination="LIm-jC-75U" id="uif-fh-Rdc"/>
-                        <outlet property="image" destination="iqC-ea-pdG" id="JgS-Gj-XII"/>
+                        <outlet property="imageArray" destination="fVi-Y4-EhJ" id="8Mq-3n-Tvw"/>
                         <outlet property="titleField" destination="c3o-5Z-C6M" id="s9Y-Tx-XfN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="icK-U2-To4" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="qVf-8t-s2m">
-                    <connections>
-                        <action selector="onTapCamera:" destination="FSJ-nn-lKh" id="X8e-7F-45u"/>
-                    </connections>
-                </tapGestureRecognizer>
+                <tapGestureRecognizer id="qVf-8t-s2m"/>
             </objects>
-            <point key="canvasLocation" x="1048" y="-283"/>
+            <point key="canvasLocation" x="1047.8260869565217" y="-283.25892857142856"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="Kvi-mq-ZOx">

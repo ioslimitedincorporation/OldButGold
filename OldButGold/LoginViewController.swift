@@ -28,11 +28,22 @@ class LoginViewController: UIViewController {
         Auth.auth().signIn(withEmail: emailField.text! + "@ucsd.edu",
                            password: passwordField.text!) { (user, error) in
             if error != nil{
-                print("ERROR")
+                let alert = UIAlertController(title: "Email and password does not match", message: "", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+                self.present(alert, animated: true)
                 print(error!)
                 return
             }else{
-                print("success")
+                if Auth.auth().currentUser?.isEmailVerified == false{
+                    //alert
+                    let alert = UIAlertController(title: "Please verify your email", message: "", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+                    self.present(alert, animated: true)
+
+                    //print("please verify email")
+                    return
+                }
+                //print("success")
                 self.performSegue(withIdentifier: "main", sender: self)
             }
         }
