@@ -35,7 +35,7 @@ class RegisterViewController: UIViewController {
                     print(error!)
                     return
                 }else{
-                    print("success")
+                    self.sendEmail()
                 }
                 let ref = Database.database().reference()
                 let u = ref.child("Users").child((user?.user.uid)!)
@@ -59,7 +59,13 @@ class RegisterViewController: UIViewController {
             }
     
         }
-    
+    func sendEmail(){
+        Auth.auth().currentUser?.sendEmailVerification { (error) in
+            let alert = UIAlertController(title: "Please verify your email account", message: "Click on the link sent to your email", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+            self.present(alert, animated: true)
+        }
+    }
 
     /*
     // MARK: - Navigation

@@ -32,7 +32,7 @@
             imageArray.dataSource = self
             imageArray.delegate = self
             photoArray.append(originalImage)
-            //convertToUIImage(asset: SelectedAssets)
+            
         }
         
         @objc func imageTapped(tapRecognizer: UITapGestureRecognizer){
@@ -56,7 +56,6 @@
                 //print(assets.count)
                 for i in 0..<assets.count {
                     self.SelectedAssets.append(assets[i])
-                    //print(self.SelectedAssets)
                 }
                 self.convertToUIImage(asset: self.SelectedAssets)
             }, completion: nil)
