@@ -12,10 +12,9 @@ import FirebaseDatabase
 
 class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
-  
-    
     var currentUser: User? = nil
     var ref: DatabaseReference!
+    var posts: [Post] = []
 
     @IBOutlet weak var userNameLabel: UILabel!
     
@@ -24,18 +23,21 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var tableView: UITableView!
     
     
-    
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print(currentUser?.post.count ?? 0)
-        return currentUser?.post.count ?? 0
+        return posts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as! PostCell
         
-        print(self.currentUser?.post)
-        cell.textLabel?.text = currentUser?.post[indexPath.row] as! String
+        
+        let post = self.posts[indexPath.row]
+      
+        
+        cell.myPostItemLabel.text = post.title as! String
+
+        cell.myPostDescriptionLabel.text = post.description as! String
         
         return cell
     }
@@ -53,7 +55,6 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         // Do any additional setup after loading the view.
     }
     
-
     
     @objc func read(){
         var userId = Auth.auth().currentUser?.uid as! String
@@ -72,15 +73,26 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         }) { (error) in
             print(error.localizedDescription)
         }
+        
+        
+        ref.child("Posts").observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            let dict = snapshot.value as? [String:[String:Any]]
+            
+            self.posts = [Post]()
+            
+            //TODO fix bug when the database is empty
+            for key in Array(self.currentUser!.post){
+                self.posts.append(Post(dictionary: dict![key] as! [String : AnyObject], key: key))
+            }
+            self.posts.sort(by: {$0.timestamp > $1.timestamp})
+    
+            self.tableView.reloadData()
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+        
+        
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
