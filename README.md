@@ -38,16 +38,16 @@ An iOS app which allows UCSD students to sell their used items or buy used items
 
 **Optional Nice-to-have Stories**
 
-* Login
-* Logout
-* Comment on the post
-* Provide multiple images
-* Sort by pricing
-* Sort by name
-* Sort by time
-* Use API from facebook to add posts
-* Add filters
-* Options for grid and list
+- [x] Login
+- [ ] Logout
+- [ ] Comment on the post
+- [x] Provide multiple images
+- [ ] Sort by pricing
+- [ ] Sort by name
+- [x] Sort by time
+- [ ] Use API from facebook to add posts
+- [ ] Add filters
+- [ ] Options for grid and list
 
 ### 2. Screen Archetypes
 
