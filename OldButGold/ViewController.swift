@@ -123,12 +123,21 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
 
 extension ViewController: UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        var tempItemsFound: [Post] = []
         for post in posts{
             if post.title.lowercased().contains(searchText.lowercased()) || post.description.lowercased().contains(searchText.lowercased()){
-                itemsFound.append(post)
+                tempItemsFound.append(post)
+                /*print("post title" + post.title.lowercased())
+                print("post description" + post.description.lowercased())
+                print(searchText.lowercased())*/
             }
         }
-        searching = true
+        itemsFound = tempItemsFound
+        if(searchText == ""){
+            searching = false
+        } else{
+            searching = true
+        }
         self.tableView.reloadData()
     }
     

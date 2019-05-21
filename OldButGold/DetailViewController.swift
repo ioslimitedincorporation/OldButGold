@@ -26,14 +26,14 @@ class DetailViewController: UIViewController {
         self.titleLabel.text = post.title
         self.detailLabel.text = post.description
         
-        let images = post.images
+        /*let images = post.images
         var lastImageUrl: String!
         for (_, url) in images{
             lastImageUrl = url
         }
         let imageUrl = URL(string: lastImageUrl as! String)
         
-        DetailImage.af_setImage(withURL: imageUrl!)
+        DetailImage.af_setImage(withURL: imageUrl!)*/
         
     }
     
