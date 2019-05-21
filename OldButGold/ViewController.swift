@@ -35,7 +35,7 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
         //print(post)
     
         cell.titleLabel.text = post.title as! String
-        //cell.titleLabel.text = posts[
+
         cell.descriptionLabel.text = post.description as! String
         return cell
     }
