@@ -30,19 +30,6 @@ class DetailViewController: UIViewController {
         
         DetailImage.af_setImage(withURL: imageUrl!)
         
-        
-        
-        // Do any additional setup after loading the view.
-        /*let ref = Database.database().reference()
-        
-        let key = post[""] as! String
-        ref.child("Posts/" + key).observeSingleEvent(of: .value) { (snapshot) in
-            let thisPost = snapshot.value as? [String:Any]
-            
-            self.titleLabel.text = thisPost?["title"] as? String
-            self.detailLabel.text = thisPost?["description"] as? String
-        } */
-        
     }
     
     

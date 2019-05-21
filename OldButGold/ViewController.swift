@@ -11,6 +11,8 @@ import FirebaseDatabase
 
 class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegate {
 
+    
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     var ref: DatabaseReference!
     var posts: [[String:Any]] = []
@@ -102,6 +104,13 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
             homeTableView.deselectRow(at: indexPath, animated: true)
         }
     }
+}
 
+var itemsFound = [String:Any]()
+extension ViewController: UISearchBarDelegate{
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        itemsFound = posts[0].filter({$0.values.prefix(searchText.count) == searchText})
+        print("the values are: \(posts[0].values)")
+    }
 }
 
