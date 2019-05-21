@@ -491,7 +491,7 @@
         <!--ProfileViewController-->
         <scene sceneID="r2N-OK-emO">
             <objects>
-                <viewController title="ProfileViewController" id="uNE-wW-1L9" sceneMemberID="viewController">
+                <viewController title="ProfileViewController" id="uNE-wW-1L9" customClass="ProfileViewController" customModule="OldButGold" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="729-Zd-Kga">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -536,7 +536,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fQD-Qn-CR8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-969.56521739130437" y="-974.33035714285711"/>
+            <point key="canvasLocation" x="-1099" y="-973"/>
         </scene>
         <!--Item-->
         <scene sceneID="HMi-0r-mUp">
