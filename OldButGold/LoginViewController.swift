@@ -22,7 +22,9 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        if Auth.auth().currentUser != nil {
+            self.performSegue(withIdentifier: "main", sender: self)
+        }
     }
     
     @IBAction func onSignIn(_ sender: Any) {

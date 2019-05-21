@@ -11,16 +11,16 @@ import Foundation
 class Post {
     var key: String
     var title: String
-    //var image:String
+    var image: [String]
     var description: String
     var timestamp: Double
     //var author: String
     
     
-    init(dictionary: [String: AnyObject], key: String) {
+    init(dictionary: [String: AnyObject], key: String, images: [String]) {
         self.key = key
         self.title = dictionary["title"] as! String
-        //self.image = dictionary["images"] as! String
+        self.image = images
         self.description = dictionary["description"] as! String
         self.timestamp = dictionary["timestamp"] as? Double ?? 0
     }
