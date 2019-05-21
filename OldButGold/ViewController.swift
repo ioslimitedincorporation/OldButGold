@@ -18,25 +18,37 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
     var posts: [Post] = []
     //var posts: [String:[String:Any]] = [:]
     
+    var searching = false
+    var itemsFound: [Post] = []
+    
+    
     
     let myRefreshControl = UIRefreshControl()
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return posts.count
+        if searching{
+            return itemsFound.count
+        } else{
+            return posts.count
+        }
+
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as! PostCell
         
         //print(indexPath.row)
-        
-        let post = self.posts[indexPath.row]
-        //print(post)
-    
-        cell.titleLabel.text = post.title as! String
 
-        cell.descriptionLabel.text = post.description as! String
+        if searching{
+            let post = self.itemsFound[indexPath.row]
+            cell.titleLabel.text = post.title as! String
+            cell.descriptionLabel.text = post.description as! String
+        } else{
+            let post = self.posts[indexPath.row]
+            cell.titleLabel.text = post.title as! String
+            cell.descriptionLabel.text = post.description as! String
+        }
         return cell
     }
     
@@ -108,11 +120,22 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
     }
 }
 
-var itemsFound = [String:Any]()
+
 extension ViewController: UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        itemsFound = posts[0].filter({$0.values.prefix(searchText.count) == searchText})
-        print("the values are: \(posts[0].values)")
+        for post in posts{
+            if post.title.lowercased().contains(searchText.lowercased()) || post.description.lowercased().contains(searchText.lowercased()){
+                itemsFound.append(post)
+            }
+        }
+        searching = true
+        self.tableView.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searching = false
+        searchBar.text = ""
+        self.tableView.reloadData()
     }
 }
 
