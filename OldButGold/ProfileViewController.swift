@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import FirebaseDatabase
 import Firebase
+import FirebaseDatabase
 
 class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
@@ -46,7 +46,12 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        read()
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        userNameLabel.text = currentUser?.name
+        userIdLabel.text = currentUser?.key
         // Do any additional setup after loading the view.
     }
     
