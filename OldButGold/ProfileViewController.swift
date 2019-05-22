@@ -75,10 +75,14 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             let dict = snapshot.value as? [String:[String:Any]]
             
             self.posts = [Post]()
-            
+            var images = [] as? [String]
             //TODO fix bug when the database is empty
             for key in Array(self.currentUser!.post){
-                self.posts.append(Post(dictionary: dict![key] as! [String : AnyObject], key: key))
+            self.ref.child("Posts").child(key).child("images").observeSingleEvent(of: .value, with: { (snapshot) in
+                    images = snapshot.value as? [String]
+                })
+                self.posts.append(Post(dictionary: dict![key] as! [String : AnyObject], key: key, images: images!))
+                
             }
             self.posts.sort(by: {$0.timestamp > $1.timestamp})
     
