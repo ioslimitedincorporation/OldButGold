@@ -11,6 +11,7 @@
 		6B4F0003ECD57B59164CB7AF /* Pods_OldButGold.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B272CC708C001F0CC8A987AD /* Pods_OldButGold.framework */; };
 		AF258C78227929DB00C70451 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF258C77227929DB00C70451 /* PostViewController.swift */; };
 		AF59FD26228A896F00AC31AC /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF59FD25228A896F00AC31AC /* RegisterViewController.swift */; };
+		AF6F8AF7229859D000ED1B7B /* KeyboardLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6F8AF6229859D000ED1B7B /* KeyboardLayoutConstraint.swift */; };
 		AFDBC17A22850BE80018252E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDBC17922850BE80018252E /* LoginViewController.swift */; };
 		AFFAA0C02290A1CE00A818BA /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFAA0BF2290A1CE00A818BA /* ImageCollectionViewCell.swift */; };
 		F51632AD22792CB7007CED36 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51632AC22792CB7007CED36 /* PostCell.swift */; };
@@ -31,6 +32,7 @@
 		7B5EBDA005C8EBE3095BD653 /* Pods-OldButGold.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OldButGold.release.xcconfig"; path = "Target Support Files/Pods-OldButGold/Pods-OldButGold.release.xcconfig"; sourceTree = "<group>"; };
 		AF258C77227929DB00C70451 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		AF59FD25228A896F00AC31AC /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		AF6F8AF6229859D000ED1B7B /* KeyboardLayoutConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardLayoutConstraint.swift; sourceTree = "<group>"; };
 		AFDBC17922850BE80018252E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		AFFAA0BF2290A1CE00A818BA /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		B272CC708C001F0CC8A987AD /* Pods_OldButGold.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OldButGold.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -125,6 +127,7 @@
 				F5A551C52269626D004C6AB8 /* Info.plist */,
 				AF258C77227929DB00C70451 /* PostViewController.swift */,
 				AF59FD25228A896F00AC31AC /* RegisterViewController.swift */,
+				AF6F8AF6229859D000ED1B7B /* KeyboardLayoutConstraint.swift */,
 			);
 			path = OldButGold;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF6F8AF7229859D000ED1B7B /* KeyboardLayoutConstraint.swift in Sources */,
 				AFDBC17A22850BE80018252E /* LoginViewController.swift in Sources */,
 				AFFAA0C02290A1CE00A818BA /* ImageCollectionViewCell.swift in Sources */,
 				AF258C78227929DB00C70451 /* PostViewController.swift in Sources */,
