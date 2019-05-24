@@ -17,6 +17,7 @@
         
         @IBOutlet weak var imageArray: UICollectionView!
         
+        @IBOutlet weak var sView: UIScrollView!
         var SelectedAssets = [PHAsset]()
         var photoArray = [UIImage]()
         
@@ -32,6 +33,7 @@
             imageArray.dataSource = self
             imageArray.delegate = self
             photoArray.append(originalImage)
+            self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
             
         }
         

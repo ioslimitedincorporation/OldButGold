@@ -60,13 +60,9 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
             let dict = snapshot.value as? [String:[String:Any]]
             
             self.posts = [Post]()
-            var images = [] as? [String]
             //TODO fix bug when the database is empty
             for key in Array(dict!.keys){
-            self.ref.child("Posts").child(key).child("images").observeSingleEvent(of: .value, with: { (snapshot) in
-                    images = snapshot.value as? [String]
-                })
-                self.posts.append(Post(dictionary: dict![key] as! [String : AnyObject], key: key, images: images!))
+                self.posts.append(Post(dictionary: dict![key]! as [String : AnyObject], key: key))
             }
             self.posts.sort(by: {$0.timestamp > $1.timestamp})
        
@@ -90,6 +86,7 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
 
         myRefreshControl.addTarget(self, action: #selector(read), for: .valueChanged)
         tableView.refreshControl = myRefreshControl
+
 
     }
     
@@ -143,10 +140,14 @@ extension ViewController: UISearchBarDelegate{
         }
         self.tableView.reloadData()
     }
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        view.endEditing(true)
+    }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searching = false
         searchBar.text = ""
+        view.endEditing(true)
         self.tableView.reloadData()
     }
 }

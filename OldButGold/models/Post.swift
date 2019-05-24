@@ -7,6 +7,9 @@
 //
 
 import Foundation
+import FirebaseDatabase
+import Firebase
+
 
 class Post {
     var key: String
@@ -14,18 +17,32 @@ class Post {
     var image: [String]
     var description: String
     var timestamp: Double
+    var ref: DatabaseReference!
+
     //var author: String
     
     
-    init(dictionary: [String: AnyObject], key: String, images: [String]) {
+    init(dictionary: [String: AnyObject], key: String) {
         self.key = key
         self.title = dictionary["title"] as! String
 
         //self.images = dictionary["images"] as! [String: String]
 
-        self.image = images
+        
 
         self.description = dictionary["description"] as! String
         self.timestamp = dictionary["timestamp"] as? Double ?? 0
+        self.ref = Database.database().reference()
+        self.image = []
+
+        
+        self.ref.child("Posts").child(key).child("images").observeSingleEvent(of: .value, with: { (snap) in
+            let array = snap.value as? [String:String]
+            for i in Array(array!){
+                self.image.append(i.value)
+                //                    print("value" + image.value)
+                //                    print(images)
+            }
+        })
     }
 }

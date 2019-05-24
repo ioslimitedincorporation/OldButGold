@@ -81,7 +81,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             self.ref.child("Posts").child(key).child("images").observeSingleEvent(of: .value, with: { (snapshot) in
                     images = snapshot.value as? [String]
                 })
-                self.posts.append(Post(dictionary: dict![key] as! [String : AnyObject], key: key, images: images!))
+                self.posts.append(Post(dictionary: dict![key] as! [String : AnyObject], key: key))
                 
             }
             self.posts.sort(by: {$0.timestamp > $1.timestamp})
@@ -94,4 +94,14 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         
     }
 
+    @IBAction func onLogout(_ sender: Any) {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+            performSegue(withIdentifier: "login", sender: self)
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+        
+    }
 }

@@ -14,5 +14,6 @@ target 'OldButGold' do
   pod 'AlamofireImage'
   pod 'BSImagePicker'
   pod 'ImageSlideshow', '~> 1.6'
+  pod "ImageSlideshow/Alamofire"
 
 end
