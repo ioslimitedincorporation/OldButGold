@@ -13,5 +13,6 @@ target 'OldButGold' do
   pod 'Firebase/Storage'
   pod 'AlamofireImage'
   pod 'BSImagePicker'
+  pod 'ImageSlideshow', '~> 1.6'
 
 end
