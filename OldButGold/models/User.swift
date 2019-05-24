@@ -16,12 +16,18 @@ class User{
     
     
     init(dictionary: [String: AnyObject], key: String) {
+        
         self.key = key
-        self.email = dictionary["email"] as! String
-        self.name = dictionary["name"] as! String
-        //let myPost = dictionary["post"] as! [String: String]
+        self.email = dictionary["email"] as? String ?? ""
+        self.name = dictionary["name"] as? String ?? ""
+        let myPost1 = dictionary["post"] as? [String: String]
         self.post = []
-        //TODO
+        
+        
+        guard let myPost = myPost1 else {
+            print("no posts")
+            return
+        }
         
 //        for key in Array(myPost.keys){
 //            self.post.append(key)

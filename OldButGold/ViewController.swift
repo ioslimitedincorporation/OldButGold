@@ -32,9 +32,9 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
         let post = self.posts[indexPath.row]
         //print(post)
     
-        cell.titleLabel.text = post.title as! String
+        cell.titleLabel.text = post.title
 
-        cell.descriptionLabel.text = post.description as! String
+        cell.descriptionLabel.text = post.description
         return cell
     }
     
@@ -43,18 +43,21 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
         ref = Database.database().reference()
         ref.child("Posts").observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
-            let dict = snapshot.value as? [String:[String:Any]]
-            if dict == nil{
-                return
-            }
+            let dict1 = snapshot.value as? [String:[String:Any]]
+            
             self.posts = [Post]()
             var images = [] as? [String]
-            //TODO fix bug when the database is empty
-            for key in Array(dict!.keys){
+            
+            guard let dict = dict1 else {
+                print("empty database");
+                return
+            }
+            
+            for key in Array(dict.keys ){
             self.ref.child("Posts").child(key).child("images").observeSingleEvent(of: .value, with: { (snapshot) in
                     images = snapshot.value as? [String]
                 })
-                self.posts.append(Post(dictionary: dict![key] as! [String : AnyObject], key: key, images: images!))
+                self.posts.append(Post(dictionary: dict[key]! as [String : AnyObject], key: key, images: images!))
             }
             self.posts.sort(by: {$0.timestamp > $1.timestamp})
        
