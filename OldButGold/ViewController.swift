@@ -44,7 +44,9 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
         ref.child("Posts").observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
             let dict = snapshot.value as? [String:[String:Any]]
-            
+            if dict == nil{
+                return
+            }
             self.posts = [Post]()
             var images = [] as? [String]
             //TODO fix bug when the database is empty
