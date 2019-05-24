@@ -19,13 +19,13 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
     
-    var post: Post!
+    var post: [String:Any]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
   
-        self.titleLabel.text = post.title
-        self.detailLabel.text = post.description
+        self.titleLabel.text = post["title"] as? String
+        self.detailLabel.text = post["description"] as? String
         
         var alamofireSource: [InputSource] = []
         for imageUrl in post.image{
@@ -56,7 +56,20 @@ class DetailViewController: UIViewController {
         }
         let imageUrl = URL(string: lastImageUrl as! String)
         
-        DetailImage.af_setImage(withURL: imageUrl!)*/
+        DetailImage.af_setImage(withURL: imageUrl!)
+        
+        
+        
+        // Do any additional setup after loading the view.
+        /*let ref = Database.database().reference()
+        
+        let key = post[""] as! String
+        ref.child("Posts/" + key).observeSingleEvent(of: .value) { (snapshot) in
+            let thisPost = snapshot.value as? [String:Any]
+            
+            self.titleLabel.text = thisPost?["title"] as? String
+            self.detailLabel.text = thisPost?["description"] as? String
+        } */
         
     }
     
