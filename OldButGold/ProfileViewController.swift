@@ -35,9 +35,9 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         let post = self.posts[indexPath.row]
       
         
-        cell.myPostItemLabel.text = post.title as! String
+        cell.myPostItemLabel.text = post.title
 
-        cell.myPostDescriptionLabel.text = post.description as! String
+        cell.myPostDescriptionLabel.text = post.description
         
         return cell
     }
@@ -62,9 +62,14 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         ref = Database.database().reference()
         ref.child("Users").observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
-            let dict = snapshot.value as? [String:[String:Any]]
+            let dict1 = snapshot.value as? [String:[String:Any]]
             
-            self.currentUser = User(dictionary: dict![userId] as! [String : AnyObject], key: userId)
+            guard let dict = dict1 else {
+                print("empty database");
+                return
+            }
+            
+            self.currentUser = User(dictionary: dict[userId]! as [String : AnyObject], key: userId)
 
             self.userNameLabel.text = self.currentUser?.name
             self.userIdLabel.text = self.currentUser?.key
@@ -77,16 +82,27 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         ref.child("Posts").observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
-            let dict = snapshot.value as? [String:[String:Any]]
+            
+            let dict1 = snapshot.value as? [String:[String:Any]]
+            
+            guard let dict = dict1 else {
+                print("empty database");
+                return
+            }
+            guard let currentUser = self.currentUser else {
+                print("empty database");
+                return
+            }
+            
             
             self.posts = [Post]()
             var images = [] as? [String]
             //TODO fix bug when the database is empty
-            for key in Array(self.currentUser!.post){
+            for key in Array(currentUser.post){
             self.ref.child("Posts").child(key).child("images").observeSingleEvent(of: .value, with: { (snapshot) in
                     images = snapshot.value as? [String]
                 })
-                self.posts.append(Post(dictionary: dict![key] as! [String : AnyObject], key: key, images: images!))
+                self.posts.append(Post(dictionary: dict[key] as! [String : AnyObject], key: key, images: images!))
                 
             }
             self.posts.sort(by: {$0.timestamp > $1.timestamp})
