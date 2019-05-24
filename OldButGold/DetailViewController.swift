@@ -24,8 +24,8 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
   
-        self.titleLabel.text = post.title as? String
-        self.detailLabel.text = post.description as? String
+        self.titleLabel.text = post.title
+        self.detailLabel.text = post.description
         
         var alamofireSource: [InputSource] = []
         for imageUrl in post.image{
