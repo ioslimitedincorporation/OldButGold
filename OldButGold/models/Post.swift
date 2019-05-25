@@ -17,7 +17,9 @@ class Post {
     var image: [String]
     var description: String
     var timestamp: Double
+    var email: String
     var ref: DatabaseReference!
+    var price: String
 
     //var author: String
     
@@ -32,8 +34,10 @@ class Post {
 
         self.description = dictionary["description"] as! String
         self.timestamp = dictionary["timestamp"] as? Double ?? 0
+        self.email = dictionary["email"] as? String ?? "no email"
 //        self.ref = Database.database().reference()
         self.image = []
+        self.price = dictionary["price"] as? String ?? ""
 
         if let array = dictionary["images"] as? [String: String] {
             if array != nil {

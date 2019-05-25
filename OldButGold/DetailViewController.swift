@@ -27,8 +27,10 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         scrollView.delegate = self
         scrollView.contentOffset.x = 0
 
+     
         self.titleLabel.text = post.title
         self.detailLabel.text = post.description
+        self.priceLabel.text = "$" + post.price
         //print(post.image)
         var alamofireSource: [AlamofireSource] = []
         for imageUrl in post.image{

@@ -17,12 +17,9 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     var posts: [Post] = []
 
     @IBOutlet weak var userNameLabel: UILabel!
-    
-    @IBOutlet weak var userIdLabel: UILabel!
-    
+
     @IBOutlet weak var tableView: UITableView!
-    
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print(currentUser?.post.count ?? 0)
         print("here")
@@ -64,7 +61,14 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
         read()
         tableView.reloadData()
-        // Do any additional setup after loading the view.
+        
+        let backgroundImage = UIImage(named: "geisel2")
+        let imageView = UIImageView(image: backgroundImage)
+        tableView.backgroundView = imageView
+        
+        tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        
+        
     }
     
     
@@ -82,10 +86,9 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
             self.currentUser = User(dictionary: dict[userId] as! [String : AnyObject], key: userId)
 
-            print("id")
-            print(self.currentUser)
+            
             self.userNameLabel.text = self.currentUser?.name
-            self.userIdLabel.text = self.currentUser?.key
+     
             
             self.tableView.reloadData()
         }) { (error) in

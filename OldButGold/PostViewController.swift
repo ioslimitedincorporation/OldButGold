@@ -13,17 +13,19 @@
     import Photos
     
     
-    class PostViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+    class PostViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITextViewDelegate {
         
         @IBOutlet weak var imageArray: UICollectionView!
         
-        @IBOutlet weak var sView: UIScrollView!
+        
+        @IBOutlet weak var priceField: UITextField!
+        
         var SelectedAssets = [PHAsset]()
         var photoArray = [UIImage]()
         
         //@IBOutlet weak var image: UIImageView!
         var originalImage: UIImage!
-        @IBOutlet weak var descriptionField: UITextField!
+        @IBOutlet weak var descriptionField: UITextView!
         @IBOutlet weak var titleField: UITextField!
         var ref: DatabaseReference!
         
@@ -35,6 +37,10 @@
             photoArray.append(originalImage)
             self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
             
+            descriptionField.delegate = self
+            descriptionField.text = "Enter your description here.........(be specific)"
+            descriptionField.textColor = UIColor.lightGray
+            
         }
         
         @objc func imageTapped(tapRecognizer: UITapGestureRecognizer){
@@ -44,7 +50,7 @@
                 return
             }
             let vc = BSImagePickerViewController()
-            vc.maxNumberOfSelections = 7 - self.imageArray.visibleCells.count
+            vc.maxNumberOfSelections = 4 - self.imageArray.visibleCells.count
             vc.takePhotos = true
             bs_presentImagePickerController(vc, animated: true,
                                             select: { (asset: PHAsset) -> Void in
@@ -104,12 +110,44 @@
                 alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
                 self.present(alert, animated: true)
             }
+            else if priceField.text == "" {
+                let alert = UIAlertController(title: "Please give a price for your item", message: "", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+                self.present(alert, animated: true)
+            }
             else if photoArray.first == originalImage {
                 let alert = UIAlertController(title: "Please add an image for your item", message: "", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
                 self.present(alert, animated: true)
             }
+                
             else {
+                
+                
+                
+//                ref = Database.database().reference()
+//                ref.child("Users").observeSingleEvent(of: .value, with: { (snapshot) in
+//                    // Get user value
+//                    let dict1 = snapshot.value as? [String:[String:Any]]
+//
+//                    guard let dict=dict1 else{
+//                        print("empty")
+//                        return
+//                    }
+//                    self.currentUser = User(dictionary: dict[userId] as! [String : AnyObject], key: userId)
+//
+//
+//                    self.userNameLabel.text = self.currentUser?.name
+//                    self.userIdLabel.text = self.currentUser?.key
+//
+//                    self.tableView.reloadData()
+//                }) { (error) in
+//                    print(error.localizedDescription)
+//                }
+//
+//
+                
+                
                 
                 ref = Database.database().reference()
                 let post = ref.child("Posts").childByAutoId()
@@ -121,7 +159,11 @@
                 let timestamp = Date().timeIntervalSince1970
                 let user = self.ref.child("Users").child(Auth.auth().currentUser!.uid)
                 user.child("post").setValue([post.key: post.key])
-                post.setValue(["title": (self.titleField.text)! , "description": (self.descriptionField.text)!, "timestamp": timestamp])
+                post.setValue(["title": (self.titleField.text)! ,
+                               "description": (self.descriptionField.text)!,
+                               "timestamp": timestamp,
+                               "price": (self.priceField.text)!,
+                               "email": Auth.auth().currentUser?.email])
                 for i in 0..<photoArray.count{
                     if photoArray[i] == originalImage {
                         continue
@@ -149,44 +191,15 @@
             }
         }
     
-    
         
+        func textViewDidBeginEditing(_ textView: UITextView) {
+            if descriptionField.textColor == UIColor.lightGray {
+                descriptionField.text = ""
+                descriptionField.textColor = UIColor.black
+            }
+        }
+
         
-        //    @IBAction func onTapCamera(_ sender: Any) {
-        //        let vc = BSImagePickerViewController()
-        //        vc.maxNumberOfSelections = 6
-        //        vc.takePhotos = true
-        //        bs_presentImagePickerController(vc, animated: true,
-        //                                        select: { (asset: PHAsset) -> Void in
-        //                                            print("Selected: \(asset)")
-        //        }, deselect: { (asset: PHAsset) -> Void in
-        //            print("Deselected: \(asset)")
-        //        }, cancel: { (assets: [PHAsset]) -> Void in
-        //            print("Cancel: \(assets)")
-        //        }, finish: { (assets: [PHAsset]) -> Void in
-        //            print("Finish: \(assets)")
-        //            print(assets.count)
-        //            for i in 0..<assets.count {
-        //                self.SelectedAssets.append(assets[i])
-        //                //print(self.SelectedAssets)
-        //            }
-        //        }, completion: nil)
-        //        photoArray = convertToUIImage(asset: SelectedAssets)
-        //        let picker = UIImagePickerController()
-        //        picker.delegate = self
-        //        picker.allowsEditing = true
-        //        let alert = UIAlertController()
-        //        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: {(action: UIAlertAction) in
-        //            picker.sourceType = .camera
-        //            self.present(picker, animated: true, completion: nil)
-        //        }))
-        //        alert.addAction(UIAlertAction(title: "Photo Album", style: .default, handler: {(action: UIAlertAction) in
-        //            picker.sourceType = .photoLibrary
-        //            self.present(picker, animated: true, completion: nil)
-        //        }))
-        //        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        //        present(alert, animated: true, completion: nil)
-        //    }
         
         func convertToUIImage (asset: [PHAsset]){
             let manager = PHImageManager.default()
@@ -198,7 +211,7 @@
                     self.photoArray.append(result!)
                 })
             }
-            if photoArray.count < 6{
+            if photoArray.count < 3{
                 photoArray.append(originalImage)
             }
         }
@@ -221,16 +234,6 @@
         }
         
         
-        //    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        //        let img = info[.editedImage] as! UIImage
-        //
-        //        let size = CGSize(width: 600, height: 600)
-        //        let scaledImage = img.af_imageScaled(to: size)
-        //        image.image = scaledImage
-        //
-        //        dismiss(animated: true, completion: nil)
-        
-        //    }
         
         
         

@@ -127,7 +127,7 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
             let detailsViewController = segue.destination as! DetailViewController
             
             detailsViewController.post = post
-            
+        
             // When the user select one row, we don't want them to see the shadow of that row when they come back
             // from the detail screen.
             homeTableView.deselectRow(at: indexPath, animated: true)
