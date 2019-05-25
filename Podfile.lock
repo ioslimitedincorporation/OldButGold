@@ -178,6 +178,7 @@ PODS:
     - AlamofireImage (~> 3.0)
     - ImageSlideshow/Core
   - ImageSlideshow/Core (1.7.0)
+  - IQKeyboardManagerSwift (6.3.0)
   - leveldb-library (1.20)
   - nanopb (0.3.901):
     - nanopb/decode (= 0.3.901)
@@ -199,6 +200,7 @@ DEPENDENCIES:
   - FirebaseUI/Auth
   - ImageSlideshow (~> 1.6)
   - ImageSlideshow/Alamofire
+  - IQKeyboardManagerSwift
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -228,6 +230,7 @@ SPEC REPOS:
     - gRPC-Core
     - GTMSessionFetcher
     - ImageSlideshow
+    - IQKeyboardManagerSwift
     - leveldb-library
     - nanopb
     - Protobuf
@@ -260,11 +263,12 @@ SPEC CHECKSUMS:
   gRPC-Core: bd9472c8daa2e414b9f8038ba667bf56ce0e02b8
   GTMSessionFetcher: 61bb0f61a4cb560030f1222021178008a5727a23
   ImageSlideshow: f8eec5e37a980f60923b585ff23b0e140fd24018
+  IQKeyboardManagerSwift: a8228c257614af98743b4cd8584637025f36358f
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Protobuf: 7a877b7f3e5964e3fce995e2eb323dbc6831bb5a
   SDWebImage: 3f3f0c02f09798048c47a5ed0a13f17b063572d8
 
-PODFILE CHECKSUM: 6817880696f4897005189d9171fe548fd1c35a70
+PODFILE CHECKSUM: ed00ddc1e6071c536517f52c2a0914716487d5d9
 
 COCOAPODS: 1.6.0

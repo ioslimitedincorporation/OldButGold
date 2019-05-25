@@ -15,8 +15,8 @@ class PostCell: UITableViewCell {
     
     @IBOutlet weak var myPostItemLabel: UILabel!
     
-    
-    
+    @IBOutlet weak var mainImage: UIImageView!
+
     @IBOutlet weak var myPostDescriptionLabel: UILabel!
     
     override func awakeFromNib() {

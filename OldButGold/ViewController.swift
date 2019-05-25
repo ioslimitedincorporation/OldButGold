@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseDatabase
+import AlamofireImage
 
 class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegate {
 
@@ -20,8 +21,6 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
     
     var searching = false
     var itemsFound: [Post] = []
-    
-    
     
     let myRefreshControl = UIRefreshControl()
     
@@ -42,16 +41,25 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
 
         if searching{
             let post = self.itemsFound[indexPath.row]
-            cell.titleLabel.text = post.title as! String
-            cell.descriptionLabel.text = post.description as! String
+            cell.titleLabel.text = post.title 
+            cell.descriptionLabel.text = post.description 
         } else{
             let post = self.posts[indexPath.row]
-            cell.titleLabel.text = post.title as! String
-            cell.descriptionLabel.text = post.description as! String
+            cell.titleLabel.text = post.title
+            cell.descriptionLabel.text = post.description
+            var images = post.image
+            images.sort()
+            if images.count != 0{
+                let imageUrl = URL(string: images[0] )
+//             let detailImage = UIImage(imageLiteralResourceName: imageUrl)
+             cell.mainImage.af_setImage(withURL: imageUrl!)
+            }
+            
         }
+        cell.backgroundColor = UIColor(white: 1, alpha: 0.8)
+
         return cell
     }
-    
 
     @objc func read(){
         ref = Database.database().reference()
@@ -86,8 +94,12 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
 
         myRefreshControl.addTarget(self, action: #selector(read), for: .valueChanged)
         tableView.refreshControl = myRefreshControl
+        let backgroundImage = UIImage(named: "geisel2")
+        let imageView = UIImageView(image: backgroundImage)
+        self.tableView.backgroundView = imageView
 
-
+        self.tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        
     }
     
 

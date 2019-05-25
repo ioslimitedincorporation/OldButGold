@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		495BE2D7227295080033BF94 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 495BE2D6227295080033BF94 /* GoogleService-Info.plist */; };
 		6B4F0003ECD57B59164CB7AF /* Pods_OldButGold.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B272CC708C001F0CC8A987AD /* Pods_OldButGold.framework */; };
 		AF258C78227929DB00C70451 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF258C77227929DB00C70451 /* PostViewController.swift */; };
 		AF59FD26228A896F00AC31AC /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF59FD25228A896F00AC31AC /* RegisterViewController.swift */; };
@@ -25,10 +24,10 @@
 		F5A551BF2269626C004C6AB8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5A551BD2269626C004C6AB8 /* Main.storyboard */; };
 		F5A551C12269626D004C6AB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5A551C02269626D004C6AB8 /* Assets.xcassets */; };
 		F5A551C42269626D004C6AB8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5A551C22269626D004C6AB8 /* LaunchScreen.storyboard */; };
+		F5BB1C5D22990ACA00D3E58C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F5BB1C5C22990ACA00D3E58C /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		495BE2D6227295080033BF94 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7B5EBDA005C8EBE3095BD653 /* Pods-OldButGold.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OldButGold.release.xcconfig"; path = "Target Support Files/Pods-OldButGold/Pods-OldButGold.release.xcconfig"; sourceTree = "<group>"; };
 		AF258C77227929DB00C70451 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		AF59FD25228A896F00AC31AC /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -50,6 +49,7 @@
 		F5A551C02269626D004C6AB8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F5A551C32269626D004C6AB8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F5A551C52269626D004C6AB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F5BB1C5C22990ACA00D3E58C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "models/GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,8 +111,8 @@
 		F5A551B82269626C004C6AB8 /* OldButGold */ = {
 			isa = PBXGroup;
 			children = (
+				F5BB1C5C22990ACA00D3E58C /* GoogleService-Info.plist */,
 				F55471FB228BA7C100FC00A6 /* models */,
-				495BE2D6227295080033BF94 /* GoogleService-Info.plist */,
 				F5A551B92269626C004C6AB8 /* AppDelegate.swift */,
 				F5A551BB2269626C004C6AB8 /* ViewController.swift */,
 				F51C8FD2229276F40033C190 /* LoginTextField.swift */,
@@ -194,7 +194,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5A551C42269626D004C6AB8 /* LaunchScreen.storyboard in Resources */,
-				495BE2D7227295080033BF94 /* GoogleService-Info.plist in Resources */,
+				F5BB1C5D22990ACA00D3E58C /* GoogleService-Info.plist in Resources */,
 				F5A551C12269626D004C6AB8 /* Assets.xcassets in Resources */,
 				F5A551BF2269626C004C6AB8 /* Main.storyboard in Resources */,
 			);
@@ -223,6 +223,7 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/ImageSlideshow/ImageSlideshow.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
@@ -246,6 +247,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageSlideshow.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
@@ -482,7 +484,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 4M66U5R36Y;
 				INFOPLIST_FILE = OldButGold/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -501,7 +503,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 4M66U5R36Y;
 				INFOPLIST_FILE = OldButGold/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

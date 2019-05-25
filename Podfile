@@ -15,5 +15,6 @@ target 'OldButGold' do
   pod 'BSImagePicker'
   pod 'ImageSlideshow', '~> 1.6'
   pod "ImageSlideshow/Alamofire"
+  pod 'IQKeyboardManagerSwift'
 
 end

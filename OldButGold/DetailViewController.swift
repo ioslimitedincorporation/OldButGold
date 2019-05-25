@@ -8,7 +8,7 @@
 
 import UIKit
 import FirebaseDatabase
-//import AlamofireImage
+
 import ImageSlideshow
 
 class DetailViewController: UIViewController, UIScrollViewDelegate {

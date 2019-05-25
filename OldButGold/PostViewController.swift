@@ -110,7 +110,7 @@
                 self.present(alert, animated: true)
             }
             else {
-                navigationController?.popViewController(animated: true)
+                
                 ref = Database.database().reference()
                 let post = ref.child("Posts").childByAutoId()
                 // Get a reference to the storage service using the default Firebase App
@@ -128,6 +128,7 @@
                     }
                     upload(storageRef: storageRef, post: post, i: i)
                 }
+                navigationController?.popViewController(animated: true)
             }
         }
         

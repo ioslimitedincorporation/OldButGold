@@ -37,11 +37,15 @@ class Post {
 
         
         self.ref.child("Posts").child(key).child("images").observeSingleEvent(of: .value, with: { (snap) in
-            let array = snap.value as? [String:String]
-            for i in Array(array!){
+            let array1 = snap.value as? [String:String]
+            
+            guard let array=array1 else {
+                print("no array for this post now")
+                return
+            }
+            for i in Array(array){
                 self.image.append(i.value)
-                //                    print("value" + image.value)
-                //                    print(images)
+            
             }
         })
     }
