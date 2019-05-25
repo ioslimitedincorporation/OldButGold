@@ -34,16 +34,19 @@ class RegisterViewController: UIViewController {
                 let alert = UIAlertController(title: "Please put in your first name", message: "", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
                 self.present(alert, animated: true)
+                return
             }
             else if lastNameField.text == nil {
                 let alert = UIAlertController(title: "Please put in your last name", message: "", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
                 self.present(alert, animated: true)
+                return
             }
             else if emailField.text == nil{
                 let alert = UIAlertController(title: "Please put in your UCSD email", message: "", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
                 self.present(alert, animated: true)
+                return
             }
             
             

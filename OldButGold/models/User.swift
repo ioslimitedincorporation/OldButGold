@@ -25,6 +25,8 @@ class User{
             if myPost != nil{
                 for key in Array(myPost.keys){
                     self.post.append(key)
+//                    print("hello1")
+//                    print(key)
                 }
             }
         }

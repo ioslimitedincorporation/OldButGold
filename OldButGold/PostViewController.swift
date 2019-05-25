@@ -124,8 +124,6 @@
             else {
                 
                 
-                
-                
                 ref = Database.database().reference()
                 let post = ref.child("Posts").childByAutoId()
                 // Get a reference to the storage service using the default Firebase App
@@ -135,18 +133,26 @@
                 let storageRef = storage.reference()
                 let timestamp = Date().timeIntervalSince1970
                 let user = self.ref.child("Users").child(Auth.auth().currentUser!.uid).child("post")
-                user.setValue([post.key: post.key as Any])
                 post.setValue(["title": (self.titleField.text)! ,
                                "description": (self.descriptionField.text)!,
                                "timestamp": timestamp,
                                "price": (self.priceField.text)!,
                                "email": Auth.auth().currentUser?.email])
+                let values = [post.key: post.key]
+                user.updateChildValues(values)
+//                user.updateChildValues(values, withCompletionBlock:{(e, u) in
+//                    if e = nil {
+//                        print("success")
+//                    }
+//
+//                } )
                 for i in 0..<photoArray.count{
                     if photoArray[i] == originalImage {
                         continue
                     }
                     upload(storageRef: storageRef, post: post, i: i)
                 }
+//                user.updateChildValues([post.key : post.key])
                 navigationController?.popViewController(animated: true)
             }
         }
