@@ -54,6 +54,9 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
 //             let detailImage = UIImage(imageLiteralResourceName: imageUrl)
              cell.mainImage.af_setImage(withURL: imageUrl!)
             }
+            else{
+                cell.mainImage.image = #imageLiteral(resourceName: "download")
+            }
             
         }
         cell.backgroundColor = UIColor(white: 1, alpha: 0.8)

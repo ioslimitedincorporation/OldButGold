@@ -158,7 +158,7 @@
                 let storageRef = storage.reference()
                 let timestamp = Date().timeIntervalSince1970
                 let user = self.ref.child("Users").child(Auth.auth().currentUser!.uid)
-                user.child("post").setValue([post.key: post.key])
+                user.child("post").updateChildValues([post.key: post.key])
                 post.setValue(["title": (self.titleField.text)! ,
                                "description": (self.descriptionField.text)!,
                                "timestamp": timestamp,

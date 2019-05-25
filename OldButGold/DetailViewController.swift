@@ -19,6 +19,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var emailButton: UIButton!
     
     var post: Post!
     
@@ -67,6 +68,16 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         
         DetailImage.af_setImage(withURL: imageUrl!)*/
         
+    }
+    @IBAction func onEmail(_ sender: Any) {
+        let email = post.email
+        if let url = URL(string: "mailto:\(email)") {
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(url)
+            } else {
+                UIApplication.shared.openURL(url)
+            }
+        }
     }
     @objc func didTap() {
         let fullScreenController = imageSlide.presentFullScreenController(from: self)
