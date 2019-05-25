@@ -701,7 +701,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="ipj-Uq-nEN"/>
                     </view>
-                    <navigationItem key="navigationItem" id="4PY-Jv-UaM"/>
+                    <navigationItem key="navigationItem" id="4PY-Jv-UaM">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="7x4-xJ-L2R">
+                            <connections>
+                                <action selector="onLogout:" destination="uNE-wW-1L9" id="5Ka-oS-WhP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="sV7-gL-GoR" id="XXE-QA-It8"/>
                         <outlet property="userIdLabel" destination="8ck-Wu-thM" id="Rzw-vX-YDg"/>
