@@ -65,12 +65,15 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
         ref = Database.database().reference()
         ref.child("Posts").observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
-            let dict = snapshot.value as? [String:[String:Any]]
-            
+            let dict1 = snapshot.value as? [String:[String:Any]]
+            guard let dict=dict1 else {
+                print("empty")
+                return
+            }
             self.posts = [Post]()
             //TODO fix bug when the database is empty
-            for key in Array(dict!.keys){
-                self.posts.append(Post(dictionary: dict![key]! as [String : AnyObject], key: key))
+            for key in Array(dict.keys){
+                self.posts.append(Post(dictionary: dict[key]! as [String : AnyObject], key: key))
             }
             self.posts.sort(by: {$0.timestamp > $1.timestamp})
        

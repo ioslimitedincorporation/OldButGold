@@ -74,9 +74,13 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         ref = Database.database().reference()
         ref.child("Users").observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
-            let dict = snapshot.value as? [String:[String:Any]]
-      
-            self.currentUser = User(dictionary: dict![userId] as! [String : AnyObject], key: userId)
+            let dict1 = snapshot.value as? [String:[String:Any]]
+            
+            guard let dict=dict1 else{
+                print("empty")
+                return
+            }
+            self.currentUser = User(dictionary: dict[userId] as! [String : AnyObject], key: userId)
 
             print("id")
             print(self.currentUser)
@@ -92,13 +96,18 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         ref.child("Posts").observeSingleEvent(of: .value, with: { (snapshot) in
       
             // Get user value
-            let dict = snapshot.value as? [String:[String:Any]]
+            let dict1 = snapshot.value as? [String:[String:Any]]
             
             self.posts = [Post]()
-            //TODO fix bug when the database is empty
-            for key in Array(dict!.keys){
+            
+            guard let dict=dict1 else{
+                print("empty")
+                return
+            }
+            
+            for key in Array(dict.keys){
                 if (self.currentUser?.post.contains(key) == true) {
-                    self.posts.append(Post(dictionary: dict![key]! as [String : AnyObject], key: key))
+                    self.posts.append(Post(dictionary: dict[key]! as [String : AnyObject], key: key))
                 }
             }
             self.posts.sort(by: {$0.timestamp > $1.timestamp})

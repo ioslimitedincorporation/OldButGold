@@ -17,8 +17,8 @@ class User{
     
     init(dictionary: [String: AnyObject], key: String) {
         self.key = key
-        self.email = dictionary["email"] as! String
-        self.name = dictionary["name"] as! String
+        self.email = dictionary["email"] as? String ?? "no email"
+        self.name = dictionary["name"] as? String ?? " no name"
         self.post = []
 
         if let myPost = dictionary["post"] as? [String: String] {
