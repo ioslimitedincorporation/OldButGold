@@ -70,9 +70,6 @@ class RegisterViewController: UIViewController {
                     }
                     
                 })
-                //implement an alert
-                //let ref = user?.user.uid
-                //ref.
                 self.navigationController?.popViewController(animated: true)
             }
     

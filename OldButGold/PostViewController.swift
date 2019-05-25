@@ -125,29 +125,6 @@
                 
                 
                 
-//                ref = Database.database().reference()
-//                ref.child("Users").observeSingleEvent(of: .value, with: { (snapshot) in
-//                    // Get user value
-//                    let dict1 = snapshot.value as? [String:[String:Any]]
-//
-//                    guard let dict=dict1 else{
-//                        print("empty")
-//                        return
-//                    }
-//                    self.currentUser = User(dictionary: dict[userId] as! [String : AnyObject], key: userId)
-//
-//
-//                    self.userNameLabel.text = self.currentUser?.name
-//                    self.userIdLabel.text = self.currentUser?.key
-//
-//                    self.tableView.reloadData()
-//                }) { (error) in
-//                    print(error.localizedDescription)
-//                }
-//
-//
-                
-                
                 
                 ref = Database.database().reference()
                 let post = ref.child("Posts").childByAutoId()
@@ -157,8 +134,8 @@
                 // Create a storage reference from our storage service
                 let storageRef = storage.reference()
                 let timestamp = Date().timeIntervalSince1970
-                let user = self.ref.child("Users").child(Auth.auth().currentUser!.uid)
-                user.child("post").updateChildValues([post.key: post.key])
+                let user = self.ref.child("Users").child(Auth.auth().currentUser!.uid).child("post")
+                user.setValue([post.key: post.key as Any])
                 post.setValue(["title": (self.titleField.text)! ,
                                "description": (self.descriptionField.text)!,
                                "timestamp": timestamp,
