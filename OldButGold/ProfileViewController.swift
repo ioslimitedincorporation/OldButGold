@@ -12,6 +12,10 @@ import Firebase
 
 class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
+    @IBOutlet weak var profileImage: UIImageView!
+    var imagePicker = UIImagePickerController()
+    
+    
     var currentUser: User? = nil
     var ref: DatabaseReference!
     var posts: [Post] = []
@@ -46,8 +50,33 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        imagePicker.delegate = self
+    }
+    
+    
+    @IBAction func changeAvatar(_ sender: Any) {
+        let actionSheet = UIAlertController(title: "Change your avatar", message: "Choose a source", preferredStyle: .actionSheet)
+        
+        actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action: UIAlertAction) in
+            
+            if UIImagePickerController.isSourceTypeAvailable(.camera){
+                self.imagePicker.sourceType = .camera
+                self.present(self.imagePicker, animated: true, completion: nil)
+            } else{
+                print("Camera is not available!")
+            }
 
-        // Do any additional setup after loading the view.
+        }))
+
+        actionSheet.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { (action: UIAlertAction) in
+            self.imagePicker.sourceType = .photoLibrary
+            self.imagePicker.allowsEditing = true
+            self.present(self.imagePicker, animated: true, completion: nil)
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: "Camera", style: .cancel, handler: nil))
+        
+        self.present(actionSheet, animated: true, completion: nil)
     }
     
     
@@ -103,5 +132,14 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             print ("Error signing out: %@", signOutError)
         }
         
+    }
+}
+
+extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            profileImage.image = image
+        }
+        dismiss(animated: true, completion: nil)
     }
 }

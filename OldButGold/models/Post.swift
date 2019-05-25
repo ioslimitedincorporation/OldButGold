@@ -38,6 +38,9 @@ class Post {
         
         self.ref.child("Posts").child(key).child("images").observeSingleEvent(of: .value, with: { (snap) in
             let array = snap.value as? [String:String]
+            if array == nil{
+                return
+            }
             for i in Array(array!){
                 self.image.append(i.value)
                 //                    print("value" + image.value)
