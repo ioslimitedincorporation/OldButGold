@@ -19,13 +19,18 @@ class User{
         self.key = key
         self.email = dictionary["email"] as! String
         self.name = dictionary["name"] as! String
-        let myPost = dictionary["post"] as! [String: String]
         self.post = []
-        //TODO
-        
-        for key in Array(myPost.keys){
-            self.post.append(key)
+
+        if let myPost = dictionary["post"] as? [String: String] {
+            if myPost != nil{
+                for key in Array(myPost.keys){
+                    self.post.append(key)
+                }
+            }
         }
+        
+        
+
         
     }
 }

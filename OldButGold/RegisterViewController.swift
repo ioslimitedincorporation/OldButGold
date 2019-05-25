@@ -30,6 +30,23 @@ class RegisterViewController: UIViewController {
         @IBAction func onSignUp(_ sender: Any) {
             //implement later using alert
             //guard let email = emailField.text
+            if firstNameField.text == nil {
+                let alert = UIAlertController(title: "Please put in your first name", message: "", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+                self.present(alert, animated: true)
+            }
+            else if lastNameField.text == nil {
+                let alert = UIAlertController(title: "Please put in your last name", message: "", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+                self.present(alert, animated: true)
+            }
+            else if emailField.text == nil{
+                let alert = UIAlertController(title: "Please put in your UCSD email", message: "", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+                self.present(alert, animated: true)
+            }
+            
+            
             Auth.auth().createUser(withEmail: emailField.text!+"@ucsd.edu", password: passwordField.text!) { (user, error) in
                 if error != nil{
                     print("ERROR")
