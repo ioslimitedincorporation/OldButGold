@@ -166,7 +166,7 @@ ref.child("users").child(user.uid).setValue(["username": username]) {
 
 ### GIF Sprint 3
 
-![Alt Text](http://http://g.recordit.co/nOOfETZVuW.gif)
+![Alt Text](http://g.recordit.co/nOOfETZVuW.gif)
 
 
 
